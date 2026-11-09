@@ -33,7 +33,7 @@ app.use(express.json({ limit: "100mb" }));
 app.set("trust proxy", 1);
 
 app.use(session({
-    secret: process.env.SESSION_SECRET || "chave-local-apenas-desenvolvimento",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -51,12 +51,12 @@ app.use(express.static(path.join(__dirname, "..")));
 
 
 const pool = mariadb.createPool({
-    host: process.env.DB_HOST || "localhost",
+    host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT || 3306),
-    user: process.env.DB_USER || "playold",
-    password: process.env.DB_PASSWORD || "",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME || "PlayOld",
-    connectionLimit: Number(process.env.DB_CONNECTION_LIMIT || 5)
+    connectionLimit: 5
 });
 
 
@@ -209,7 +209,6 @@ app.post("/login", async (req, res) => {
     try {
 
         const { identificador, senha } = req.body;
-        console.log("IDENTIFICADOR RECEBIDO PELO SERVIDOR:", JSON.stringify(identificador));
 
         if (!identificador || !senha) {
             return res.status(400).json({
@@ -233,16 +232,11 @@ app.post("/login", async (req, res) => {
         }
 
         const usuario = usuarios[0];
-        
-        console.log("Usuário encontrado:", usuario.UsrName);
-		console.log("Hash encontrado:", usuario.senha);
 
-        const senhaCorreta = await bcrypt.compare(
-            senha,
-            usuario.senha
-        );
-        
-        console.log("Senha correta:", senhaCorreta);
+		const senhaCorreta = await bcrypt.compare(
+			senha,
+			usuario.senha
+		);
 
         if (!senhaCorreta) {
             return res.status(401).json({
@@ -4444,5 +4438,5 @@ app.post("/comprar-todos", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor iniciado na porta ${PORT}`);
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
