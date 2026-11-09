@@ -48,7 +48,9 @@ const path = require("path");
 
 app.use(express.static(path.join(__dirname, "..")));
 
-
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "Home", "Home.html"));
+});
 
 const pool = mariadb.createPool({
     host: process.env.DB_HOST,
