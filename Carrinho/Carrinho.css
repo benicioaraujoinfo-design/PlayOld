@@ -1,0 +1,421 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto,sans-serif;
+    background-image: url("../imagens/fundoDesfocado.png");
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    background: red;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size: 28px;
+	left: 20px;
+    font-weight: bold;
+    text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 34%;
+	width: 9%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#B{
+	left: 45%;
+	width: 14%;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+#D{
+	left: 60%;
+	width: 10.8%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+#S{
+	left: 73%;
+	width: 20%;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 270px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+#caixona {
+    position: relative;
+    background-color: rgba(17, 13, 57, 0.98);
+    width: 80%;
+    margin: 160px auto 40px;
+    padding: 80px 4% 40px;
+    border-radius: 25px;
+    flex: 1;
+}
+
+#caixona h1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+    background-color: rgba(15, 25, 35, 0.90);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 10px;
+    min-width: 0;
+    min-height: 240px;
+    padding: 15px;
+    background-color: #182635;
+    border-radius: 12px;
+}
+
+.card img {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    width: 100%;
+    height: 100%;
+    min-height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h2 {
+    grid-column: 2;
+    grid-row: 1;
+    color: white;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.card h3 {
+    grid-column: 2;
+    grid-row: 2;
+    color: #B2B2B2;
+    font-size: 17px;
+}
+
+.agora, .remover {
+    position: static;
+    width: 100%;
+    min-height: 38px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .25s ease, background-color .25s ease;
+}
+
+.agora {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    background-color: green;
+}
+
+.agora:hover {
+    background-color: #00FF00;
+    transform: scale(1.03);
+}
+
+.remover {
+    grid-column: 2;
+    grid-row: 4;
+    align-self: start;
+    background-color: #9E0000;
+    color: white;
+}
+
+.remover:hover {
+    background-color: #FF0000;
+    transform: scale(1.03);
+}
+
+
+#comprarTudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    min-width: 240px;
+    min-height: 60px;
+    margin: 30px 0 0 auto;
+    padding: 15px 25px;
+    background-color: green;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: transform 0.25s ease,
+                background-color 0.25s ease;
+}
+
+#comprarTudo:hover {
+    background-color: #00FF00;
+    color: black;
+    transform: scale(1.03);
+}
+
+footer {
+    background: rgba(100, 100, 0, 0.9);
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+    flex-shrink: 0;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}

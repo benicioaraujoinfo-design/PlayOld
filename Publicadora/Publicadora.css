@@ -1,0 +1,703 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	position: relative;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    animation: aparecerPagina 0.8s ease;
+}
+
+@keyframes aparecerPagina {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes aparecerDeBaixo {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerDaEsquerda {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aparecerDaDireita {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes brilhoLogo {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+#principal, footer {
+    position: relative;
+    z-index: 1;
+}
+
+#fundoJogosPublicadora {
+    position: absolute;
+    top: -5.5vh;
+    left: 0;
+    width: 100%;
+    min-height: calc(100% - 18vh);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px);
+    box-sizing: border-box;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+#fundoJogosPublicadora img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    opacity: 0.80;
+    filter: blur(1px);
+    border-radius: 5px;
+}
+
+#fundoJogosPublicadora::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 4, 8, 0.05);
+    pointer-events: none;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+
+    background: red;
+    padding-right: 2%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	color: black;
+	position: absolute;
+    font-size:28px;
+	left: 20px;
+    font-weight:bold;
+    text-shadow: 5px 3px 3px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 35%;
+	width: 9%;
+}
+#B{
+	left: 44%;
+	width: 14%;
+}
+#D{
+	left: 58.5%;
+	width: 10.8%;
+}
+#S{
+	left: 69.2%;
+	width: 20%;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 3000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+#principal {
+	position: relative;
+    width: 70%;
+    margin-left: 15%;
+    margin: 40px auto;
+    min-height: calc(100vh - 18vh - 200px);
+    background-color: rgba(50, 50, 50, 0.95);
+    padding-bottom: 50px;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    padding: 30px;
+    padding-top: 30px;
+    margin-top: calc(18vh + 40px);
+}
+
+#cabecalhoPublicadora {
+    position: relative;
+    height: 240px;
+    padding: 30px;
+    background-color: #1b2838;
+    border-radius: 10px;
+}
+
+#PublicadoraImg {
+    position: absolute;
+    width: 240px;
+    height: 100px;
+    left: 40vh;
+    top: 5vh;
+}
+
+#logoPublicadora {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 5px 5px black);
+}
+
+#dadosPublicadora {
+	position: absolute;
+	top: 19vh;
+	left: 32%;
+    display: flex;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+.dadoPublicadora {
+    display: flex;
+    flex-direction: column;
+}
+
+.numeroDado {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffe600;
+    padding-left: 21%;
+}
+
+.textoDado {
+    color: #bbb;
+    font-size: 20px;
+}
+
+.secaoPublicadora {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: #1b2838;
+    border-radius: 10px;
+    animation: aparecerDeBaixo 0.8s ease both;
+}
+
+.secaoPublicadora:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.secaoPublicadora:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.secaoPublicadora:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.secaoPublicadora h2 {
+    font-size: 30px;
+}
+
+.linhaTitulo {
+    width: 100px;
+    height: 4px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    background-color: #ffe600;
+    border-radius: 5px;
+    transition: width 0.4s ease;
+}
+
+.secaoPublicadora:hover .linhaTitulo {
+    width: 180px;
+}
+
+.secaoPublicadora p {
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.textoSecao {
+
+    margin-bottom: 25px;
+
+}
+
+#listaConsoles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cardConsole {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #111b27;
+    border-radius: 10px;
+    border-left: 5px solid #ffe600;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-left-width 0.3s ease;
+    opacity: 0;
+    animation: aparecerDeBaixo 0.7s ease forwards;
+}
+
+.cardConsole:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.cardConsole:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.cardConsole:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.cardConsole:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+.cardConsole:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px black;
+    border-left-width: 10px;
+}
+
+.anoConsole {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffe600;
+    min-width: 65px;
+}
+
+.infoConsole h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.infoConsole p {
+    font-size: 15px;
+    margin: 0;
+}
+
+#cabecalhoJogos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#ordenar {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.cardJogo {
+    background-color: #111b27;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aparecerCard 0.5s ease forwards;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+@keyframes aparecerCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cardJogo:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px black;
+}
+
+.cardJogo img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.infoJogo {
+    padding: 15px;
+}
+
+.infoJogo h3 {
+    margin-bottom: 10px;
+}
+
+.precoJogo {
+    color: #7aff7a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.descontoJogo {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 3px 6px;
+    background-color: #4c6b22;
+    color: #a4e55c;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+#semJogos {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+}
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+@media (max-width: 1200px) {
+    nav a {
+        font-size: 18px;
+    }
+    #principal {
+        width: 85%;
+    }
+}
+
+@media (max-width: 800px) {
+    header {
+        height: auto;
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    #pesquisaContainer {
+        margin-left: auto;
+    }
+
+    #cabecalhoPublicadora {
+        flex-direction: column;
+        text-align: center;
+    }
+    #dadosPublicadora {
+        justify-content: center;
+    }
+    #listaConsoles {
+        grid-template-columns: 1fr;
+    }
+    #cabecalhoJogos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    footer {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+    #principal {
+        width: 95%;
+        padding: 15px;
+    }
+    #cabecalhoPublicadora {
+        padding: 20px;
+    }
+    #nomePublicadora {
+        font-size: 35px;
+    }
+    #dadosPublicadora {
+        flex-direction: column;
+        gap: 15px;
+    }
+    footer div {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.trocandoJogos {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}

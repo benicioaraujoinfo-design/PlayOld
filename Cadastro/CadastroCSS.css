@@ -1,0 +1,180 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+#caixona {
+	position: relative;
+	background-color: red;
+	width: 41%;
+	height: 90%;
+	top: 6%;
+	left: 30%;
+	border-radius: 15px;
+}
+
+.botao, #img, #overlay {
+	position: absolute;
+	border-radius: 100%;
+}
+
+.botao {
+	display: inline-block;
+	background: black;
+	color: white;
+	cursor: pointer;
+	left: 32%;
+	top: 1%;
+	width: 32vh;
+	height: 32vh;
+	overflow: hidden;
+	box-shadow: 0 10px 10px black;
+}
+
+#img, #overlay {
+	width: 100%;
+	height: 100%;
+}
+
+#img {
+	object-fit: cover;
+}
+
+#overlay {
+	opacity: 0;
+	background:rgba(100,100,100,0.8);
+	transition: .3s;
+	top: 0.1%;
+}
+
+.botao:hover #overlay {
+	opacity: 1;
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+    transition: .3s;
+    z-index: 2;
+}
+
+.botao:hover #text {
+    opacity: 1;
+}
+
+#no, #em, #da, #pa {
+	position: absolute;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 4px -3px 6px #212121;
+}
+
+#no {
+	top: 42%;
+	left: 25.5%;
+}
+
+#em {
+	top: 51.7%;
+	left: 26%;
+}
+
+#da {
+	top: 61.9%;
+	left: 2.5%;
+}
+
+#pa {
+	top: 71.5%;
+	left: 4.5%;
+}
+
+#nome, #email, #data, #pais, #cadastro{
+	position: absolute;
+	border-radius: 15px;
+	text-align: center;
+	font-size: 15px;
+	box-shadow: 0 7px 10px black;
+	cursor: pointer;
+}
+
+#nome {
+	top: 40.5%;
+	left: 36%;
+	width: 40%;
+	height: 6%;
+}
+
+#email {
+	top: 50%;
+	left: 36%;
+	width: 40%;
+	height: 6%;
+}
+
+#data {
+	top: 61%;
+	left: 36%;
+	width: 40%;
+	height: 6%;
+}
+
+#pais {
+	top: 71%;
+	left: 36%;
+	width: 40%;
+	height: 6%;
+}
+
+#se {
+    position: absolute;
+    top: 82%;
+    left: 25%;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 4px -3px 6px #212121;
+}
+
+#senha {
+    position: absolute;
+    top: 81%;
+    left: 36%;
+    width: 40%;
+    height: 6%;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: 0 7px 10px black;
+    cursor: pointer;
+}
+
+#cadastro {
+	top: 90%;
+	left: 40%;
+	width: 20%;
+	height: 6%;
+	background-color: yellow;
+	border: none;
+	font-weight: bold;
+}
+
+#cadastro:hover {
+	background-color: #9D9D00;
+}

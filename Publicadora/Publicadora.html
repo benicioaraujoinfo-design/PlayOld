@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Publicadora - PlayOld</title>
+
+    <link rel="stylesheet" href="Publicadora.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input
+			type="text"
+			id="barraPesquisa"
+			placeholder="Pesquisar jogos..."
+			autocomplete="off"
+		>
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img
+        id="fotoUsuario"
+        src="../imagens/gato.jpeg"
+        alt="Foto de perfil"
+    >
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">
+            Perfil
+        </a>
+
+        <a href="../Configuracoes/Configuracoes.html">
+            Configurações
+        </a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div id="fundoJogosPublicadora"></div>
+
+    <main id="principal">
+
+        <section id="cabecalhoPublicadora">
+
+            <div id="PublicadoraImg">
+
+                <img id="logoPublicadora" src="" alt="">
+
+            </div>
+
+
+            <div id="informacoesPublicadora">
+
+                <div id="dadosPublicadora">
+
+                    <div class="dadoPublicadora">
+                        <span class="numeroDado" id="quantidadeJogos"></span>
+
+                        <span class="textoDado">
+                            Jogos publicados
+                        </span>
+                    </div>
+
+                    <div class="dadoPublicadora">
+						<span class="numeroDado" id="anoCriacao"></span>
+
+						<span class="textoDado">
+							Fundação
+						</span>
+					</div>
+
+                    <div class="dadoPublicadora">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="secaoJogos" class="secaoPublicadora">
+
+            <div id="cabecalhoJogos">
+
+                <div>
+
+                    <h2>Jogos publicados</h2>
+
+                    <div class="linhaTitulo"></div>
+
+                </div>
+
+
+                <select id="ordenar">
+
+                    <option value="az">
+                        Nome: A-Z
+                    </option>
+
+                    <option value="za">
+                        Nome: Z-A
+                    </option>
+
+                    <option value="menorPreco">
+                        Menor preço
+                    </option>
+
+                    <option value="maiorPreco">
+                        Maior preço
+                    </option>
+
+                    <option value="maiorDesconto">
+                        Maior desconto
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                id="cardsJogos"
+                class="cards"
+            ></div>
+
+
+            <p id="semJogos">
+                Nenhum jogo encontrado.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+		
+		<a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+			
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+		
+		<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+		
+		<h3 id="empresa">PLAYOLD</h3>
+		<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+		<a href="" id="faetec">Sobre a Faetec</a>
+		
+	</footer>
+
+
+	<script src="../JS/header.js"></script>
+    <script src="Publicadora.js"></script>
+
+</body>
+
+</html>

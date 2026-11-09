@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="PGJogo.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input type="text" id="barraPesquisa" placeholder="Pesquisar jogos..." autocomplete="off">
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img id="fotoUsuario" src="../imagens/gato.jpeg" alt="Foto de perfil">
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        <a href="../AdicionarAmz/AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div id="fundoImagensJogo"></div>
+
+    <div class="carrossel">
+		
+		<h1 id="nomeJogo"></h1>
+		
+		<button id="anterior">❮</button>
+		<button id="proximo">❯</button>
+
+        <div class="slides">
+
+            <div class="slide">
+                <img src="">
+            </div>
+
+            <div class="slide">
+                <img src="">
+            </div>
+
+            <div class="slide">
+                <img src="">
+            </div>
+            
+            <div class="slide">
+                <img src="">
+            </div>
+            
+            <div class="slide">
+                <img src="">
+            </div>
+            
+            <div class="slide">
+                <img src="">
+            </div>
+
+        </div>
+
+        <div class="miniaturas"></div>
+        
+        <div id="fundo">
+        
+			<span id="precoOriginal"> </span>
+			<span id="desconto"> </span>
+			<span id="preco"> </span>
+			
+			<button type="button" id="carrinho">
+				<img src="../imagens/carrinhoEditado.png" id="car">
+			</button>
+			<a href="../Comprar/Comprar.html" id="comprar">Comprar</a>
+			
+			<label id="botaoD">
+				<input type="checkbox" id="wishlist" hidden>
+				<img src="../imagens/listaPretoEditado.png" id="imgD" title="Lista de Desejos">
+				<h2>
+					Lista de desejos
+				</h2>
+			</label>
+			
+			<section id="descricao">
+				<h2 id="tituloSob">Sobre este jogo</h2>
+				<p id="textoD"></p>
+			</section>
+			
+			<section id="dados">
+				<h2 id="tituloDad">Informações do Jogo</h2>
+				
+				<h3 id="dataLan">Data de Lançamento:</h3>
+				<p id="data">a</p>
+				
+				<h3 id="distribuidora">Produtora:</h3>
+				<p id="distri">b</p>
+				
+				<h3 id="publicadora">Publicadora:</h3>
+				<p id="publi">c</p>
+				
+				<h3 id="console">Consoles:</h3>
+				<p id="conso">d</p>
+				
+			</section>
+			
+			<section id="memaImp">
+
+				<h2 id="tituloImp">Mais jogos da mesma empresa</h2>
+
+				<button class="setaJogos setaEsquerda" id="setaProdutoraEsquerda">
+					❮
+				</button>
+
+				<div class="janelaCards">
+					<div class="cards" id="cardsProdutora"></div>
+				</div>
+
+				<button class="setaJogos setaDireita" id="setaProdutoraDireita">
+					❯
+				</button>
+
+			</section>
+
+			<section id="semelhantes">
+
+				<h2 id="tituloIgu">Mais jogos do mesmo gênero</h2>
+
+				<button class="setaJogos setaEsquerda" id="setaGeneroEsquerda">
+					❮
+				</button>
+
+				<div class="janelaCards">
+					<div class="cards" id="cardsGenero"></div>
+				</div>
+
+				<button class="setaJogos setaDireita" id="setaGeneroDireita">
+					❯
+				</button>
+
+			</section>
+			
+		</div>
+    
+    </div>
+
+<footer>
+		
+    <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        
+	<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+	
+	<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+	
+	<h3 id="empresa">PLAYOLD</h3>
+	<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+	<a href="" id="faetec">Sobre a Faetec</a>
+	
+</footer>
+
+<script src="../JS/header.js"></script>
+<script src="PGJogO.js"></script>
+
+</body>
+</html>

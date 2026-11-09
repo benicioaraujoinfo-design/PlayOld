@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="CadastroCSS.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+	<section id="caixona">
+		
+		<form>
+
+			<input type="file" id="arquivo" hidden>
+				<label for="arquivo" class="botao">
+					<img src="../imagens/gatinhoFeliz.jpg" id="img">
+					<div id="overlay"></div>
+					<span id="text">Trocar Foto</span>
+				</label>
+			
+			<label for="nome" id="no">Nome</label>
+			<input type="text" id="nome" placeholder="Nome do Usuário" required>
+			
+			<label for="email" id="em">Email</label>
+			<input type="text" id="email" placeholder="Email" required>
+			
+			<label for="data" id="da">Data de Nascimento</label>
+			<input type="date" id="data" min="1945-04-30" required>
+			
+			<label for="pais" id="pa">Pais de Residencia</label>
+			<select id="pais" required>
+				<option value="">Selecione um País</option>
+				
+				<option>Brasil</option>
+				<option>Estados Unidos da América</option>
+				<option>Alemanha</option>
+				<option>Cazaquistão</option>
+				<option>Bangladesh</option>
+				<option>Aqui do Lado</option>
+				<option>Ali na Frente</option>
+			
+			</select>
+			
+			<label for="senha" id="se">Senha</label>
+			<input type="password" id="senha" placeholder="Senha" required>
+
+		<input type="submit" id="cadastro" value="Cadastrar">
+
+		</form>
+
+	</section>
+
+<script src="Cadastro.js"></script>
+
+</body>
+</html>

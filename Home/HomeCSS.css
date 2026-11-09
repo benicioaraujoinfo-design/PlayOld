@@ -1,0 +1,748 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+
+    background: red;
+    padding-right: 2%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size:28px;
+	left: 20px;
+    font-weight:bold;
+    text-shadow: 5px 3px 3px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 34%;
+	width: 9%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#B{
+	left: 45%;
+	width: 14%;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+#D{
+	left: 60%;
+	width: 10.8%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+#S{
+	left: 73%;
+	width: 20%;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 270px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+.caixa, .caixa2, .caixa3, .caixa4, .caixa5, .caixa6, .caixa7{
+	position: relative;
+    background: #0f1923;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(0, 21, 35, 0.97);
+    box-shadow: 0px 0px 10px black;
+}
+
+#cardsPromocoes, #cardsMaisJogados {
+	transform: translateY(16px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.nomeCaixa, .nomeEmp{
+	transform
+	font-weight: bold;
+	text-shadow: 5px 3px 5px black;
+}
+
+#destaque {
+	position: absolute;
+	top: 4vh;
+	left: 52vh;
+	color: white;
+	font-size: 32px;
+}
+
+.caixa {
+	left: 20vh;
+	padding: 1% 2% 1% 1%;
+	width: 140vh;
+	padding-top: 30px;
+    margin-top: calc(18vh + 40px);
+}
+
+.caixa2{
+    margin: 4% 11%;
+    padding: 1% 2%;
+    width: 79%;
+}
+
+.caixa3{
+	margin: 4% 11%;
+	padding: 1% 1% 1% 2%;
+	width: 79%;
+}
+
+.caixa4{
+	margin: 1% 11%;
+	width: 79%;
+	height: 150%;
+	
+}
+
+.caixa5{
+	left: 8vh;
+	margin: 4% 11%;
+	width: 70%;
+	height: 47%;
+}
+
+.caixa6 {
+	margin: 3% 11%;
+	width: 79%;
+	height: 35%;
+}
+
+.caixa7 {
+	margin: 3% 11%;
+	width: 79%;
+	height: 35%;
+}
+
+.hero{
+	left: 10vh;
+	transform: translateX(-14px);
+    margin: 30px auto;
+    width: 110vh;
+}
+
+.slides{
+    flex:1;
+    position:relative;
+    height:500px;
+    padding: 20px;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:0.6s;
+    cursor: pointer;
+}
+
+.slide.ativo{
+    opacity:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.info{
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    background:rgba(0,0,0,0.7);
+    padding:20px;
+    border-radius:10px;
+}
+
+button{
+    font-size:25px;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+#anterior, #proximo {
+	position: absolute;
+	top: 25vh;
+	height: 30vh;
+	background-color: #ED0010;
+	font-weight: bold;
+	font-size: 38px;
+	transition: transform 0.2s ease;
+	border: none;
+}
+
+#anterior:hover, #proximo:hover {
+	background-color: #87000A;
+	transform: scale(1,1.4);
+	width: 11vh;
+}
+
+#anterior {
+	left: -9vh;
+}
+
+#proximo {
+	right: -15vh;
+}
+
+.card, .consola, .consoles-grid, .slide {
+	box-shadow: 0 0 10px black;
+}
+
+.promocoes{
+    width:90%;
+    margin:60px auto;
+    
+}
+
+.maisJogados {
+	width:90%;
+    margin: 60px auto;
+    padding-top: 24px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background: #1b2838;
+    width: 100%;
+    min-width: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform:translateY(-10px);
+}
+
+.card img{
+    width: 100%;
+	height: 320px;
+	object-fit: cover;
+	display: block;
+}
+
+.card h3{
+    padding: 10px;
+}
+
+.card p{
+    padding: 10px;
+    color: #7aff7a;
+}
+
+.desconto{
+    background: #4c6b22;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.categorias{
+    width: 90%;
+    margin: 60px auto;
+}
+
+.tituloCategorias {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#botaoCategorias {
+	transform: translateY(-18px);
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 40px;
+    padding: 1px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#botaoCategorias:hover, .botaoCeta:hover {
+    color: #8C8C8C;
+}
+
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+    cursor: pointer;
+
+    max-height: 99px;
+    overflow: hidden;
+
+    transition: max-height 0.5s ease;
+}
+
+.categorias-grid div{
+    background: #1b2838;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.categorias-grid div:hover{
+    background: #2a475e;
+}
+
+.categorias-grid.expandido {
+    max-height: 500px;
+}
+
+.consola {
+	background: #1b2838;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s;
+    cursor: pointer;
+    font-family: "Roboto";
+    font-weight: bold;
+}
+
+.consola:hover {
+    transform:translateY(-10px);
+}
+
+.consola img{
+    width: 100%;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+
+
+.consoles {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.consoles-carrossel {
+	transform: translateY(10px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.consoles-viewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.consoles-grid {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.consola {
+    background: #1b2838;
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+    font-family: "Roboto";
+    font-weight: bold;
+    box-shadow: 0 0 10px black;
+    padding: 0;
+    text-align: center;
+}
+
+.consola:hover {
+    transform: translateY(-6px);
+    background: #2a475e;
+}
+
+.consola img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.porta {
+    display: block;
+    padding: 14px 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.setaConsoles {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 55px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: #1b2838;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.setaConsoles:hover:not(:disabled) {
+    background: #2a475e;
+}
+
+.setaConsoles:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+@media (max-width: 700px) {
+    .consoles {
+        width: 94%;
+    }
+
+    .consoles-carrossel {
+        gap: 6px;
+    }
+
+    .setaConsoles {
+        flex-basis: 30px;
+        width: 30px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .consoles-grid {
+        gap: 12px;
+    }
+
+    .consola {
+        flex-basis: calc((100% - 24px) / 3);
+    }
+
+    .consola img {
+        height: 110px;
+        padding: 5px;
+    }
+
+    .porta {
+    display: block;
+    padding: 14px 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    }
+}
+
+
+.nomeEmp {
+	position: absolute;
+	top: 7%;
+	left: 6%;
+}
+
+.botaoCeta{
+	position: absolute;
+	border: none;
+    background: transparent;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+    left: 91%;
+    top: 2%;
+}
+
+#publi-grid, #prod-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 90%;
+    margin: 60px auto 0;
+    cursor: pointer;
+    padding-top: 3%;
+}
+
+#publi-grid div, #prod-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 180px;
+}
+
+#publi-grid img, #prod-grid img {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    transition: transform 0.2s ease;
+}
+
+#publi-grid img:hover, #prod-grid img:hover {
+    transform: scale(1.15);
+}

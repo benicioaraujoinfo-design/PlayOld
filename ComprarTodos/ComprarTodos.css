@@ -1,0 +1,616 @@
+*{
+	margin:0;
+    padding:0;
+	box-sizing:border-box
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body{
+	margin:0;
+	font-family:Roboto,sans-serif;
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    background: red;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size: 28px;
+	left: 20px;
+    font-weight: bold;
+    text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 34%;
+	width: 9%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#B{
+	left: 45%;
+	width: 14%;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+#D{
+	left: 60%;
+	width: 10.8%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+#S{
+	left: 73%;
+	width: 20%;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 270px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+#principal{
+	transform: translateY(80px);
+	width:min(1120px,92%);
+	min-height:calc(100vh - 180px);
+	margin:0 auto;
+	padding:55px 0 80px
+}
+
+#areaCompra{
+	display:grid;
+	grid-template-columns:minmax(0,1fr) minmax(310px,.8fr);
+	gap:28px;
+	align-items:start
+}
+
+.painel{
+	min-width:0;
+	padding:26px;
+	border-radius:12px;
+	background:#1b2838;
+	box-shadow:0 10px 25px #0006;
+	animation:aparecer .65s ease both
+}
+
+.painel h2{
+	margin:0 0 24px;
+	font-size:24px
+}
+
+#capasJogos{
+	position:relative;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	min-height:245px;
+	margin:0 auto 22px;
+	padding:10px 0;
+	isolation:isolate
+}
+
+.capaSobreposta{
+	position:relative;
+	width:min(42%,190px);
+	aspect-ratio:3/4;
+	flex:0 0 auto;
+	object-fit:cover;
+	border:3px solid #fff;
+	border-radius:8px;
+	box-shadow:0 12px 25px #0007;
+	background:#0F0408;
+}
+
+.capaSobreposta+.capaSobreposta{
+	margin-left:-54px
+}
+
+.capaSobreposta:nth-child(1){
+	z-index:3;transform:translateX(-8px) rotate(-4deg)
+}
+
+.capaSobreposta:nth-child(2){
+	z-index:2;transform:translateX(-3px) rotate(2deg)
+}
+
+.capaSobreposta:nth-child(3){
+	z-index:1;transform:translateX(2px) rotate(5deg)
+}
+
+#nomesJogos{
+	margin:0;
+	color:#fff;
+	font-size:17px;
+	line-height:1.65;
+	overflow-wrap:anywhere;
+}
+
+#quantidadeJogos{
+	margin:14px 0 0;
+	color:#c8d0d8;
+	font-size:14px;
+}
+
+.carregando{
+	color:#c8d0d8;
+}
+
+.opcoesPagamento{
+	display:grid;
+	gap:11px;
+	margin-bottom:24px
+}
+
+.opcaoPagamento{
+	display:flex;
+	align-items:center;
+	gap:11px;
+	padding:12px;
+	border:1px solid #435266;
+	border-radius:7px;
+	cursor:pointer;
+}
+
+.opcaoPagamento:has(input:checked){
+	border-color:
+	#DEE302;
+	background:#DEE30214;
+}
+.opcaoPagamento input{
+	accent-color:#DEE302
+}
+
+.rotuloCampo{
+	display:block;
+	margin-bottom:8px;
+	font-weight:700;
+}
+
+#nomeComprador{
+	width:100%;
+	padding:12px 13px;
+	border:1px solid #435266;
+	border-radius:7px;
+	background:#0f1923;
+	color:#fff;
+	font:inherit
+}
+
+#nomeComprador:focus{
+	outline:2px solid #DEE302;
+	outline-offset:2px;
+}
+
+#resumoPreco{
+	margin-top:25px;
+	padding-top:18px;
+	border-top:1px solid #435266;
+}
+
+.linhaPreco{
+	display:flex;
+	justify-content:space-between;
+	gap:16px;
+	margin:0 0 14px;
+	color:#d0d0d0;
+}
+
+.linhaPreco.total{
+	margin-top:18px;
+	padding-top:17px;
+	border-top:1px solid #435266;
+	color:white;
+	font-size:21px;
+	font-weight:700;
+}
+
+#botaoComprar{
+	width:100%;
+	margin-top:10px;
+	padding:14px;
+	border:0;
+	border-radius:7px;
+	background:#DEE302;
+	color:#0F0408;
+	font-size:16px;
+	font-weight:700;
+	cursor:pointer;
+	transition:transform .15s,opacity .15s;
+}
+
+#botaoComprar:hover:not(:disabled){
+	transform:translateY(-2px)
+}
+
+#botaoComprar:disabled{
+	cursor:not-allowed;
+	opacity:.55
+}
+
+#mensagemErro{
+	display:none;
+	margin:14px 0 0;
+	color:#ff7777;
+	line-height:1.45;
+}
+
+#compraConcluida {
+    display: none;
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 50px 30px;
+    text-align: center;
+    background: #1b2838;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    animation: aparecerDeBaixo .7s ease;
+}
+
+#compraConcluida[hidden]{
+	display:none;
+}
+
+#iconeSucesso{
+	display:grid;
+	place-items:center;
+	width:68px;
+	height:68px;
+	margin:0 auto 18px;
+	border-radius:50%;
+	background:#DEE302;
+	color:#0F0408;
+	font-size:42px;
+	font-weight:700
+}
+
+#botoesSucesso{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;gap:12px;
+	margin-top:25px;
+}
+
+#botoesSucesso a{
+	padding:12px 16px;
+	border-radius:7px;
+	background:#DEE302;
+	color:#0F0408;
+	text-decoration:none;
+	font-weight:700;
+}
+
+#botoesSucesso a+a{
+	background:#0f1923;
+	color:#fff;
+	border:1px solid #435266;
+}
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+    margin-top: 25px;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+@keyframes aparecer{
+	from{
+		opacity:0;
+		transform:translateY(12px)
+	}to{
+		opacity:1;
+		transform:translateY(0);
+	}
+}
+
+@media(max-width:800px){
+	header{
+	flex-wrap:wrap;
+	justify-content:center;
+	}
+
+	#areaCompra{
+		grid-template-columns:1fr;
+	}
+
+	#capasJogos{
+		min-height:220px;
+	}
+
+	.capaSobreposta{
+		width:min(38%,175px);
+	}
+}
+
+@media(max-width:480px){
+	#principal{
+		width:94%;
+		padding-top:35px;
+	}
+	
+	.painel{
+		padding:20px;
+	}
+	
+	#capasJogos{
+		min-height:180px;
+	}
+	
+	.capaSobreposta+.capaSobreposta{
+		margin-left:-38px;
+	}
+	
+	footer{
+		flex-wrap:wrap;
+		text-align:center}
+}
+
+#tituloCompra {
+    text-align: center;
+    color: white;
+    margin-bottom: 45px;
+    animation: aparecerDeBaixo .7s ease;
+}
+
+#tituloCompra h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+#tituloCompra p {
+    font-size: 17px;
+    opacity: .8;
+}
+
+#iconeSucesso {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #15E705;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulsar .8s ease;
+}
+
+#compraConcluida h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#compraConcluida p {
+    color: #ccc;
+    font-size: 17px;
+}

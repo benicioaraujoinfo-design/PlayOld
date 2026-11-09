@@ -1,0 +1,1042 @@
+*{ 
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	min-height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+    margin: 0;
+    background: linear-gradient(120deg, #ff006e, #8338ec, #3a86ff, #06d6a0, #ffbe0b);
+    background-size: 400% 400%;
+    animation: degradêFundo 7s ease infinite;
+}
+
+@keyframes degradêFundo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    background: red;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size:28px;
+	left: 20px;
+    font-weight:bold;
+    text-shadow: 5px 3px 3px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 34%;
+	width: 9%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#B{
+	left: 45%;
+	width: 14%;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+#D{
+	left: 60%;
+	width: 10.8%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+#S{
+	left: 73%;
+	width: 20%;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 270px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+footer {
+    background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+    margin-top: 60px;
+    position: relative;
+    z-index: 20;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+input{
+    padding:8px;
+    border:none;
+    border-radius:5px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+.carrossel {
+    position: relative;
+    width: 70%;
+    height: 310vh;
+    margin: 170px auto 0;
+    background-color: rgba(15, 25, 35, 0.92);
+    padding-top: 60px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    position: relative;
+    z-index: 10;
+}
+
+#nomeJogo {
+	position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 32px;
+	left: 43%;
+	top: 1.7%;
+}
+
+#fundo {
+	position: relative;
+    top: -4vh;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64.9vh);
+    background-color: rgba(0, 29, 59, 0.90);
+    margin: 40px auto 0;
+    border-radius: 20px;
+    box-shadow: 0 -5px 10px black;
+}
+
+.slides {
+    position: relative;
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.slide{ 
+	position: absolute; 
+	width: 70%; 
+	height: 100%; 
+	left: 50%; 
+	transform: translateX(-50%) scale(.7);
+	 opacity: 0; 
+	 transition: .5s; 
+	 z-index: 1; 
+}
+
+#anterior {
+    left: 1%;
+}
+
+#proximo {
+    right: 1%;
+}
+
+#anterior, #proximo {
+    cursor: pointer;
+    height: 40vh;
+    width: 9vh;
+    position: absolute;
+    top: 19vh;
+    z-index: 10;
+    border-radius: 20px;
+    background-color: red;
+    font-size: 70px;
+    border: none;
+    color: white;
+}
+
+#anterior:hover, #proximo:hover {
+	background-color: #920000;
+	transform: scale(1.1);
+}
+
+.slide img{ 
+	width:100%; 
+	height: 100%; 
+	border-radius: 15px;
+} 
+
+.slide.ativo{ 
+	opacity: 1; 
+	transform: translateX(-50%) scale(1);
+	z-index: 3; 
+} 
+
+.slide.anterior{ 
+	opacity: .5; 
+	transform: translateX(-110%) scale(.75);
+	z-index: 2; 
+} 
+
+.slide.proximo{
+	opacity: .5;
+	transform: translateX(10%) scale(.75);
+	z-index: 2; 
+}
+
+.thumb{
+	width: 90px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 6px; 
+	cursor: pointer; 
+	opacity: .5; 
+	transition: .3s;
+} 
+
+.thumb:hover{
+	opacity: 1; 
+}
+
+.thumb.ativa{
+	border: 3px solid #4da6ff; 
+	opacity: 1;
+}
+
+#opinioes {
+	position: absolute;
+	width: 100%;
+	height: 90vh;
+	background-color: #071627;
+	top: 238vh;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	box-shadow: 5px 5px 10px black;
+}
+
+#opinioes h1 {
+	display: flex;
+	justify-content: center;
+}
+
+#textin {
+	position: absolute;
+	font-weight: bold;
+	font-size: 20px;
+	top: 5vh;
+	left: 3vh;
+}
+
+#opG, #opiniaoG {
+	position: absolute;
+}
+
+#opG {
+	top: 33vh;
+	left: 58vh;
+	font-size: 30px;
+}
+
+#opiniaoRpz {
+	position: absolute;
+	top: 40vh;
+	left: 67vh;
+	font-size: 26px;
+}
+
+#seuComent {
+	position: absolute;
+	background-color: #00458C;
+	width: 100%;
+	height: 22vh;
+	top: 10vh;
+}
+
+#com {
+	position: absolute;
+	top: 44vh;
+	left: 1vh;
+	font-size: 27px;
+}
+
+#comentarioExibido {
+	position: absolute;
+	background-color: #163759;
+	width: 90%;
+	height: 20vh;
+	top: 50vh;
+	left: 7vh;
+}
+
+#nomeOutro {
+	position: absolute;
+	top: 3.4vh;
+	left: 15vh;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+#opiniaoG {
+	top: 11vh;
+	left: 17vh;
+	font-size: 24px;
+}
+
+#tempoJogoOutro {
+	position: absolute;
+	left: 50vh;
+	top: 4vh;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#timeOutro {
+	position: absolute;
+	top: 3.5vh;
+	left: 73vh;
+	font-size: 22px;
+}
+
+#likeOutro {
+	position: absolute;
+	top: 0.5vh;
+	left: 100vh;
+	width: 12vh;
+	height: 12vh;
+}
+
+#perfil, #perfilOutro {
+	position: absolute;
+	width: 12.5vh;
+	height: 12vh;
+	border: 2px solid black;
+}
+
+#perfil {
+	left: 2vh;
+	top: 1vh;
+}
+
+#perfilOutro {
+	top: 4vh;
+	left: 2vh;
+}
+
+#foto {
+	width: 100%;
+	height: 100%;
+}
+
+#seuNome {
+	position: absolute;
+	left: 16vh;
+	top: 5vh;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+#tempoJogo, #time {
+	position: absolute;
+	top: 5vh;
+	font-size: 20px;
+}
+
+#tempoJogo {
+	left: 50vh;
+	font-weight: bold;
+}
+
+#time {
+	left: 72vh;
+	color: white;
+}
+
+#comentario, #enviarComentario {
+	position: absolute;
+	top: 14vh;
+	height: 8vh;
+}
+
+#comentario {
+	width: 80%;
+}
+
+#enviarComentario {
+	left: 115.6vh;
+	width: 20.1%;
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
+}
+
+#likeOpiniao, #dislikeOpiniao {
+	position: absolute;
+	top: 1vh;
+	width: 10vh;
+	height: 10vh;
+	cursor: pointer;
+}
+
+#likeOpiniao {
+	left: 110vh;
+}
+
+#dislikeOpiniao {
+	left: 127vh;
+}
+
+#tituloImp, #tituloIgu {
+	display: flex;
+	justify-content: center;
+}
+
+#semelhantes, #memaImp {
+	position: relative;
+	width: 100%;
+	height: 60vh;
+	background-color: rgba(0, 53, 108, 0.80);
+	box-shadow: 0 -5px 10px black, 0 5px 10px black;
+}
+
+#memaImp {
+	top: 40vh;
+}
+
+#semelhantes {
+	top: 47vh;
+}
+
+.janelaCards {
+    position: relative;
+    width: 84%;
+    height: 50vh;
+    margin: 2% auto 0;
+    overflow: hidden;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 200%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+
+.card {
+    background: #1b2838;
+    flex: 0 0 calc((50% - 40px) / 3);
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+}
+
+.card h3 {
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.desconto{
+    background: #4c6b22;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.setaJogos {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6%;
+    height: 30%;
+    z-index: 5;
+    border: none;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.setaJogos:hover {
+    transform: translateY(-50%) scale(1.1);
+    background-color: #cc0000;
+}
+
+.setaEsquerda {
+    left: 1%;
+}
+
+.setaDireita {
+    right: 1%;
+}
+
+#imgD, #imgG, #imgN {
+    width: 12vh;
+    height: 12vh;
+    display: block;
+}
+
+#botaoD {
+    position: absolute;
+    top: 2vh;
+    cursor: pointer;
+	left: 2%;
+	width: 275px;
+	background-color: #42668C;
+	border-top-left-radius: 40px;
+	border-bottom-left-radius: 40px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+
+#botaoD h2 {
+	position: absolute;
+	left: 13.6vh;
+	top: 4vh;
+}
+
+#botaoD:hover {
+	background-color: #25405C;
+	transform: scale(1.03);
+}
+
+#precoOriginal {
+	position: absolute;
+	top: 2vh;
+	left: 80.1%;
+	font-size: 22px;
+	color: white;
+	font-weight: bold;
+	opacity: 0.5;
+}
+
+#desconto{
+	position: absolute;
+	color: green;
+	top: 2vh;
+	left: 88.5%;
+	font-size: 22px;
+}
+
+#preco {
+	position: absolute;
+	top: 5vh;
+	left: 80%;
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#carrinho, #comprar {
+	position: absolute;
+	top: 16vh;
+	height: 14vh;
+	background-color: #15E705;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px black;
+}
+
+#carrinho {
+	left: 66.5%;
+	width: 12.5%;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border: none;
+}
+
+#car {
+	width: 60%;
+	height: 90%;
+}
+
+#comprar {
+	left: 79%;
+	width: 20%;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#comprar.jogoComprado {
+    background-color: #178C0E;
+}
+
+#comprar.jogoComprado:hover {
+    background-color: #0F6509;
+}
+
+#comprar:hover, #carrinho:hover {
+	background-color: #178C0E;
+	border-radius: 25px;
+}
+
+#comprar, #imgG, #imgD, #imgN, #anterior, #proximo, #carrinho {
+	transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#comprar:hover, #carrinho:hover {
+	transform: scale(1.1);
+}
+
+#imgG:hover, #imgD:hover, #imgN:hover {
+    transform: scale(1.2);
+}
+
+#descricao {
+	position: relative;
+	width: 61%;
+	height: 30vh;
+	top: 25vh;
+	left: 0;
+	font-size: 15px;
+	background-color: rgba(72, 72, 72, 0.98);
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 7px 5px 10px black;
+}
+
+#tituloSob {
+	display: flex;
+	justify-content: center;
+	font-size: 24px;
+}
+
+#textoD {
+	position: absolute;
+	font-size: 20px;
+	top: 7vh;
+	left: 1vh;
+	color: white;
+}
+
+#dados {
+	position: relative;
+	background-color: rgba(33, 61, 91, 0.98);
+	width: 100%;
+	height: 25vh;
+	top: 32vh;
+	box-shadow: -7px 0 20px black;
+}
+
+#tituloDad {
+	display: flex;
+	justify-content: center;
+	top: 3%;
+	font-size: 26px;
+}
+
+#dataLan, #publicadora, #distribuidora, #console {
+	position: absolute;
+	font-size: 22px;
+	left: 2%;
+	color: white;
+}
+
+#data, #publi, #distri, #conso {
+	position: absolute;
+	font-size: 22px;
+	color: white;
+}
+
+#dataLan {
+	top: 7vh;
+	left: 13vh;
+}
+
+#data {
+	top: 7vh;
+	left: 45vh;
+}
+
+#console {
+	top: 7vh;
+	left: 76.4vh;
+}
+
+#conso {
+	top: 7vh;
+	left: 92vh;
+}
+
+#publicadora {
+	top: 14vh;
+	left: 13vh;
+}
+
+#publi {
+	top: 14vh;
+	left: 32.3vh;
+}
+
+#distribuidora {
+	top: 14vh;
+	left: 76.4vh;
+}
+
+#distri {
+	top: 14vh;
+	left: 97.2vh;
+}
+
+#distri, #publi, #conso {
+	transition: background-color .2s, color .2s;
+}
+
+#distri:hover, #publi:hover, #conso:hover {
+	background-color: black;
+	border-radius: 10px;
+}
+
+#fundoImagensJogo {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.imagemFundoJogo {
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.imagemFundoJogo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}

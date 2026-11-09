@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=sdb1
+Icon=/tmp/drive_icons/sdb1_icon.svg
+Exec=spacefm-open /dev/sdb1
+Terminal=false
+Type=Application

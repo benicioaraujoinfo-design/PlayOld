@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Teste - PlayOld</title>
+</head>
+
+<body>
+
+    <h1>Cadastro de teste</h1>
+
+    <form id="formCadastro">
+
+        <label for="UsrName">Nome de usuário:</label>
+        <input type="text" id="UsrName" required>
+
+        <br><br>
+
+        <label for="Email">E-mail:</label>
+        <input type="email" id="Email" required>
+
+        <br><br>
+
+        <label for="DataNas">Data de nascimento:</label>
+        <input type="date" id="DataNas">
+
+        <br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" required>
+
+        <br><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+    <p id="resultado"></p>
+    
+    <hr>
+
+<h1>Login de teste</h1>
+
+<form id="formLogin">
+
+    <label for="loginEmail">E-mail:</label>
+    <input type="email" id="loginEmail" required>
+
+    <br><br>
+
+    <label for="loginSenha">Senha:</label>
+    <input type="password" id="loginSenha" required>
+
+    <br><br>
+
+    <button type="submit">Entrar</button>
+
+</form>
+
+<hr>
+
+	<h1>Sessão</h1>
+
+	<button id="verificarSessao">
+		Verificar sessão
+	</button>
+
+	<button id="logout">
+		Sair
+	</button>
+
+	<p id="resultadoSessao"></p>
+
+	<p id="resultadoLogin"></p>
+
+    <script>
+
+        const formulario = document.querySelector("#formCadastro");
+        const resultado = document.querySelector("#resultado");
+
+        formulario.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const dados = {
+                UsrName: document.querySelector("#UsrName").value,
+                Email: document.querySelector("#Email").value,
+                DataNas: document.querySelector("#DataNas").value,
+                senha: document.querySelector("#senha").value
+            };
+
+            try {
+
+                const resposta = await fetch("http://localhost:3000/cadastro", {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(dados)
+                });
+
+                const dadosResposta = await resposta.json();
+
+                if (resposta.ok) {
+                    resultado.textContent = dadosResposta.mensagem;
+                    formulario.reset();
+                } else {
+                    resultado.textContent = "Erro: " + dadosResposta.erro;
+                }
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                resultado.textContent =
+                    "Não foi possível conectar ao servidor.";
+
+            }
+
+        });
+        
+        const formularioLogin = document.querySelector("#formLogin");
+		const resultadoLogin = document.querySelector("#resultadoLogin");
+
+		formularioLogin.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const dadosLogin = {
+        Email: document.querySelector("#loginEmail").value,
+        senha: document.querySelector("#loginSenha").value
+    };
+
+    try {
+
+        const resposta = await fetch("http://localhost:3000/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(dadosLogin)
+        });
+
+        const dadosResposta = await resposta.json();
+
+        if (resposta.ok) {
+
+            resultadoLogin.textContent =
+                dadosResposta.mensagem +
+                " Usuário: " +
+                dadosResposta.usuario.UsrName;
+
+            console.log("Usuário logado:", dadosResposta.usuario);
+
+        } else {
+
+            resultadoLogin.textContent =
+                "Erro: " + dadosResposta.erro;
+        }
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        resultadoLogin.textContent =
+            "Não foi possível conectar ao servidor.";
+    }
+
+});
+
+	const verificarSessao =
+    document.querySelector("#verificarSessao");
+
+const botaoLogout =
+    document.querySelector("#logout");
+
+const resultadoSessao =
+    document.querySelector("#resultadoSessao");
+
+
+// VERIFICAR SESSÃO
+verificarSessao.addEventListener("click", async function() {
+
+    try {
+
+        const resposta = await fetch(
+            "http://localhost:3000/usuario"
+        );
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+
+            resultadoSessao.textContent =
+                "Usuário logado: " +
+                dados.usuario.UsrName +
+                " | ID: " +
+                dados.usuario.IDusr;
+
+        } else {
+
+            resultadoSessao.textContent =
+                dados.mensagem;
+        }
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        resultadoSessao.textContent =
+            "Não foi possível conectar ao servidor.";
+    }
+
+});
+
+
+// LOGOUT
+botaoLogout.addEventListener("click", async function() {
+
+    try {
+
+        const resposta = await fetch(
+            "http://localhost:3000/logout",
+            {
+                method: "POST"
+            }
+        );
+
+        const dados = await resposta.json();
+
+        resultadoSessao.textContent =
+            dados.mensagem;
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        resultadoSessao.textContent =
+            "Não foi possível conectar ao servidor.";
+    }
+
+});
+
+    </script>
+
+</body>
+</html>

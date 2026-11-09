@@ -1,0 +1,578 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    background: red;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size: 28px;
+	left: 20px;
+    font-weight: bold;
+    text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 34%;
+	width: 9%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#B{
+	left: 45%;
+	width: 14%;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+#D{
+	left: 60%;
+	width: 10.8%;
+	padding-right: 60px;
+	padding-left: 60px;
+}
+#S{
+	left: 73%;
+	width: 20%;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 270px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+#principal {
+    background-color: rgba(15, 25, 35, 0.92);
+    position: relative;
+    width: 70%;
+    min-height: 120vh;
+    left: 15%;
+    padding-bottom: 100px;
+    box-shadow: 0 10px 20px black;
+}
+
+#nome {
+	position: absolute;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+    text-shadow: 4px 5px 6px black;
+}
+
+#tools {
+    margin-top: 12.5%;
+    background-color: #110D39;
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 5px black;
+}
+
+#ordenar {
+    width: 220px;
+    height: 45px;
+    border-radius: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+	transition: background-color .2s, color .2s;
+	box-shadow: 5px 6px 5px black;
+}
+
+#ordenar:hover {
+	background-color: #8C8C8C;
+}
+
+.jogos {
+    width: 100%;
+    padding: 35px 7.5%;
+}
+
+#moldura {
+	border: 6px solid white;
+	width: 29vh;
+	height: 42.5vh;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px);
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.card {
+    background: #1b2838;
+    width: 180px;
+    height: 270px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    animation: aparecerCard .5s ease forwards;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px black;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    padding: 10px 10px 5px;
+    font-size: 20px;
+}
+
+.card p {
+    padding: 5px 10px 12px;
+    color: #7aff7a;
+    font-weight: bold;
+}
+
+.desconto {
+    display: inline-block;
+    background: #4c6b22;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+@keyframes aparecerCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#bibliotecaVazia {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+}
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+#fundoPainel {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    z-index: 2000;
+}
+
+#fundoPainel.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+#painelJogo {
+    position: fixed;
+    top: 17vh;
+    right: 0;
+    width: 380px;
+    height: 100vh;
+    background-color: #1b2838;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.7);
+    z-index: 2001;
+    padding: 35px;
+    transform: translate(100%, 110px);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+    overflow-y: auto;
+    padding-bottom: 130px;
+}
+
+#painelJogo.aberto {
+    transform: translateX(0);
+}
+
+#fecharPainel {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    font-size: 32px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+#fecharPainel:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: rotate(90deg);
+}
+
+#painelCapa {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px black;
+    animation: aparecerCapa .5s ease;
+}
+
+@keyframes aparecerCapa {
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#painelNome {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+#informacoesJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: #0f1923;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.informacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #1b2838;
+    transition: background-color .2s ease;
+}
+
+.informacao:hover {
+    background-color: #26384a;
+}
+
+.tituloInformacao {
+    color: #9da6ad;
+    font-size: 14px;
+}
+
+.informacao span:last-child {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#botoesJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#botaoJogar, #botaoPaginaJogo {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+#botaoJogar {
+    background-color: #178C0E;
+    color: white;
+}
+
+#botaoJogar:hover {
+    background-color: #1eae14;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+#botaoPaginaJogo {
+    background-color: #3b4c5c;
+    color: white;
+}
+
+#botaoPaginaJogo:hover {
+    background-color: #506477;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 600px) {
+    #painelJogo {
+        width: 90%;
+        padding: 25px;
+    }
+}

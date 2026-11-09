@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="PerfilCSS.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="perfilProprio">
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input type="text" id="barraPesquisa" placeholder="Pesquisar jogos..." autocomplete="off">
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img id="fotoUsuario" src="../imagens/gato.jpeg" alt="Foto de perfil">
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        
+        <a href="../AdicionarAmz/AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<section class="caixona">
+	
+	<div id="fundo"></div>
+	
+	<h2 id="nomeUsuarioPerfil">Carregando...</h2>
+	
+	<div id="linha-cima"></div>
+	<p id="descricaoPerfil">Carregando...</p>
+	<div id="linha-baixo"></div>
+	
+	<a href="#" id="mudar">Editar dados</a>
+	<div class="linha-mudar"></div>
+	
+	<a href="../AtividadesAmigos/AtividadesAmigos.html" id="atividade">Atividade dos amigos</a>
+	<div class="linha-atividade"></div>
+	
+	<a href="../AdicionarAmz/AdicionarAmz.html" id="adicionar">Adicionar amigos</a>
+	<div class="linha-adicionar"></div>
+	
+	<button id="botaoSair">Sair</button>
+	<div class="linha-sair"></div>
+	
+	<button id="botaoExcluir" type="button">
+		<p id="excluir">Excluir conta</p>
+	</button>
+	<div class="linha-excluir"></div>
+	
+<dialog id="dialogExcluirConta">
+
+    <h3>Excluir conta permanentemente</h3>
+
+    <p>
+        Esta ação não poderá ser desfeita.
+        Digite sua senha atual para confirmar.
+    </p>
+
+    <form id="formExcluirConta">
+
+        <input type="password" id="senhaExcluirConta" placeholder="Senha atual" required>
+
+        <button type="submit">
+            Confirmar exclusão
+        </button>
+
+        <button type="button" id="cancelarExcluirConta">
+            Cancelar
+        </button>
+
+    </form>
+
+</dialog>
+	
+	<a href="../Historico/Historico.html" id="historico">Historico</a>
+	<div class="linha-historico"></div>
+	
+	<section class="caixona-left">
+		
+		<h2>Seus Jogos</h2>
+
+		<div id="gradeJogosPerfil">
+			
+		</div>
+		
+	</section>
+	
+	<section class="caixona-right">
+		<h2>Seus amigos</h2>
+		<div id="listaAmigosPerfil"></div>
+	</section>
+	
+	<input type="file" id="arquivo" accept="image/*" hidden>
+	<label for="arquivo" class="botao">
+		<img src="" id="img">
+		<div id="overlay"></div>
+		<span id="text">Trocar Foto</span>
+	</label>
+	
+</section>
+
+<div id="fundoPainelPerfil"></div>
+
+<aside id="painelPerfil" aria-label="Editar perfil">
+
+    <button id="fecharPainelPerfil" type="button"
+        aria-label="Fechar painel">
+        ×
+    </button>
+
+    <h2>Editar perfil</h2>
+
+    <form id="formEditarPerfil">
+
+        <div class="grupoFundoPerfil">
+
+            <h3>Imagem de fundo</h3>
+
+            <div id="previewFundoPerfil">
+                <span>Prévia do fundo</span>
+            </div>
+
+            <input type="file" id="arquivoFundoPerfil" accept="image/*" hidden>
+
+            <label for="arquivoFundoPerfil" id="botaoFundoPerfil">
+                Escolher imagem
+            </label>
+
+        </div>
+
+        <div class="campoPerfil">
+            <label for="nomeEditarPerfil">Nome de usuário</label>
+
+            <input type="text" id="nomeEditarPerfil" placeholder="Novo nome" autocomplete="username" required>
+        </div>
+        
+		<div class="campoPerfil">
+			<label for="descricaoEditarPerfil">Descrição do perfil</label>
+
+			<textarea
+				id="descricaoEditarPerfil"
+				placeholder="Conte um pouco sobre você..."
+				maxlength="100"
+				rows="4"
+			></textarea>
+
+			<small>Máximo de 300 caracteres.</small>
+		</div>
+
+        <div class="campoPerfil">
+            <label for="emailEditarPerfil">E-mail</label>
+
+            <input type="email" id="emailEditarPerfil" placeholder="Novo e-mail" autocomplete="email" required>
+        </div>
+
+		<div class="campoPerfil">
+			<label for="senhaEditarPerfil">Nova senha</label>
+
+			<input type="password" id="senhaEditarPerfil" minlength="6" placeholder="Digite a nova senha" autocomplete="new-password">
+			
+			
+			<small>A senha deve ter pelo menos 6 caracteres.</small>
+		</div>
+
+		<div class="campoPerfil">
+			<label for="confirmarSenhaPerfil">Confirmar nova senha</label>
+
+			<input type="password" id="confirmarSenhaPerfil" placeholder="Digite a senha novamente" autocomplete="new-password">
+
+			<small>
+				Deixe os dois campos vazios para manter a senha atual.
+			</small>
+		</div>
+
+        <button type="submit" id="salvarPerfil">
+            Salvar alterações
+        </button>
+
+        <p id="mensagemPerfil" role="status"></p>
+
+    </form>
+
+</aside>
+
+
+<div id="fundoPainelJogoPerfil"></div>
+
+<aside id="painelJogoPerfil" aria-label="Detalhes do jogo">
+
+    <button
+        id="fecharPainelJogoPerfil"
+        type="button"
+        aria-label="Fechar painel"
+    >×</button>
+
+    <img
+        id="capaPainelJogoPerfil"
+        src="../imagens/gato.jpeg"
+        alt="Capa do jogo"
+    >
+
+    <h2 id="nomePainelJogoPerfil">Nome do jogo</h2>
+
+    <div id="informacoesPainelJogoPerfil">
+
+        <div class="informacaoJogoPerfil">
+            <span>Tempo de jogo</span>
+            <span id="tempoPainelJogoPerfil">0 horas</span>
+        </div>
+
+        <div class="informacaoJogoPerfil">
+            <span>Data de compra</span>
+            <span id="compraPainelJogoPerfil">—</span>
+        </div>
+
+        <div class="informacaoJogoPerfil">
+            <span>Última vez jogado</span>
+            <span id="ultimaJogadaPainelJogoPerfil">
+                Nunca jogado
+            </span>
+        </div>
+
+    </div>
+
+    <div id="botoesPainelJogoPerfil">
+        <button id="jogarPainelJogoPerfil" type="button">
+            ▶ Jogar
+        </button>
+
+        <button id="paginaPainelJogoPerfil" type="button">
+            Página do jogo
+        </button>
+    </div>
+
+</aside>
+
+<footer>
+		
+    <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        
+	<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+	
+	<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+	
+	<h3 id="empresa">PLAYOLD</h3>
+	<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+	<a href="" id="faetec">Sobre a Faetec</a>
+	
+</footer>
+
+<div id="fundoEditorFoto" aria-hidden="true">
+
+    <section
+        id="editorFotoModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tituloEditorFoto"
+    >
+
+        <button
+            type="button"
+            id="fecharEditorFoto"
+            aria-label="Fechar editor"
+        >
+            &times;
+        </button>
+
+        <h2 id="tituloEditorFoto">
+            Ajustar foto de perfil
+        </h2>
+
+        <p class="instrucaoEditorFoto">
+            Arraste a imagem para escolher o enquadramento.
+        </p>
+
+        <div id="areaRecorteFoto">
+
+            <img
+                id="imagemEditorFoto"
+                alt="Imagem sendo ajustada"
+                draggable="false"
+            >
+
+            <div id="guiaRecorteFoto"></div>
+
+        </div>
+
+        <div class="controleZoomFoto">
+
+            <label for="zoomEditorFoto">
+                Zoom
+            </label>
+
+            <div class="linhaZoomFoto">
+                <span aria-hidden="true">−</span>
+
+                <input
+                    type="range"
+                    id="zoomEditorFoto"
+                    min="1"
+                    max="3"
+                    step="0.01"
+                    value="1"
+                >
+
+                <span aria-hidden="true">+</span>
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            id="redefinirEditorFoto"
+        >
+            Redefinir enquadramento
+        </button>
+
+        <p
+            id="mensagemEditorFoto"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+        <div class="botoesEditorFoto">
+
+            <button
+                type="button"
+                id="cancelarEditorFoto"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="button"
+                id="salvarEditorFoto"
+            >
+                Salvar foto de perfil
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="../JS/header.js"></script>
+<script src="Perfil.js"></script>
+
+</body>
+</html>

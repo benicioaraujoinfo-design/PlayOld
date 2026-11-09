@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Perfil - PlayOld</title>
+
+</head>
+
+<body>
+
+    <h1>Meu perfil</h1>
+
+    <p>
+        <strong>ID:</strong>
+        <span id="IDusr"></span>
+    </p>
+
+    <p>
+        <strong>Usuário:</strong>
+        <span id="UsrName"></span>
+    </p>
+
+    <p>
+        <strong>E-mail:</strong>
+        <span id="Email"></span>
+    </p>
+
+    <p>
+        <strong>Data de nascimento:</strong>
+        <span id="DataNas"></span>
+    </p>
+
+    <p>
+        <strong>Descrição:</strong>
+        <span id="descricao"></span>
+    </p>
+
+    <p>
+        <strong>Foto:</strong>
+        <span id="foto_perfil"></span>
+    </p>
+
+    <p id="mensagem"></p>
+
+
+    <button id="logout">
+        Sair
+    </button>
+
+
+    <script>
+
+        async function carregarPerfil() {
+
+            try {
+
+                const resposta =
+                    await fetch("/usuario");
+
+                const dados =
+                    await resposta.json();
+
+
+                // Usuário não está logado
+                if (!resposta.ok) {
+
+                    document.querySelector("#mensagem")
+                        .textContent = dados.mensagem;
+
+                    return;
+                }
+
+
+                // Preenche o perfil
+                document.querySelector("#IDusr")
+                    .textContent = dados.usuario.IDusr;
+
+                document.querySelector("#UsrName")
+                    .textContent = dados.usuario.UsrName;
+
+                document.querySelector("#Email")
+                    .textContent = dados.usuario.Email;
+
+                document.querySelector("#DataNas")
+                    .textContent =
+                    dados.usuario.DataNas || "Não informado";
+
+                document.querySelector("#descricao")
+                    .textContent =
+                    dados.usuario.descricao || "Não informado";
+
+                document.querySelector("#foto_perfil")
+                    .textContent =
+                    dados.usuario.foto_perfil || "Não definida";
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                document.querySelector("#mensagem")
+                    .textContent =
+                    "Erro ao carregar o perfil.";
+
+            }
+
+        }
+
+
+        // Logout
+        document.querySelector("#logout")
+            .addEventListener("click", async function() {
+
+                const resposta =
+                    await fetch("/logout", {
+                        method: "POST"
+                    });
+
+                const dados =
+                    await resposta.json();
+
+                alert(dados.mensagem);
+
+                window.location.href =
+                    "/cadastro-teste.html";
+
+            });
+
+
+        carregarPerfil();
+
+    </script>
+
+</body>
+
+</html>

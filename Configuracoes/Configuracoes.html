@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PlayOld - Configurações</title>
+
+    <link rel="stylesheet" href="ConfiguracoesCSS.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input type="text" id="barraPesquisa" placeholder="Pesquisar jogos..." autocomplete="off">
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+    <button id="botaoUsuario">
+    <img id="fotoUsuario" src="../imagens/gato.jpeg" alt="Foto de perfil">
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        <a href="../AdicionarAmz/AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div id="conteudoConfiguracoes">
+
+    <main id="principal">
+
+        <section class="caixaConfiguracao">
+
+            <h2>
+                Conta
+            </h2>
+
+
+            <div class="opcao">
+
+                <div class="textoOpcao">
+
+                    <h3>
+                        Perfil
+                    </h3>
+
+                    <p>
+                        Altere suas informações pessoais e sua foto de perfil.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="../Perfil/Perfil.html"
+                    class="botaoOpcao"
+                >
+                    Abrir
+                </a>
+
+            </div>
+
+
+            <div class="linha"></div>
+
+
+            <div class="opcao">
+
+                <div class="textoOpcao">
+
+                    <h3>
+                        Configurar Controles
+                    </h3>
+
+                    <p>
+                        Configure os controles utilizados nos jogos.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="botaoOpcao"
+                    id="botaoControles"
+                >
+                    Configurar
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="caixaConfiguracao">
+
+            <h2>
+                Sessão
+            </h2>
+
+
+            <div class="opcao sairOpcao">
+
+                <div class="textoOpcao">
+
+                    <h3>
+                        Sair da Conta
+                    </h3>
+
+                    <p>
+                        Encerre sua sessão neste dispositivo.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="botaoSair"
+                    id="botaoSair"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <div id="fundoDireita">
+
+        <img
+            src="../imagens/DinoConfg.png"
+            alt=""
+        >
+
+    </div>
+
+</div>
+
+<section id="hubControles">
+
+    <h2>Escolha um controle</h2>
+
+    <div id="listaControles">
+
+        <div class="cardControle" data-console="NES">
+            <img src="../imagens/controleNES.jpeg" alt="Controle NES">
+            <span>NES</span>
+        </div>
+
+        <div class="cardControle" data-console="SNES">
+            <img src="../imagens/controleSNES.jpeg" alt="Controle SNES">
+            <span>SNES</span>
+        </div>
+
+        <div class="cardControle" data-console="MEGA_DRIVE">
+            <img src="../imagens/controleMegaDrive.jpeg" alt="Controle Mega Drive">
+            <span>Mega Drive</span>
+        </div>
+
+        <div class="cardControle" data-console="GAME_BOY_COLOR">
+            <img src="../imagens/controleGBC.png" alt="Controle Game Boy Color">
+            <span>Game Boy Color</span>
+        </div>
+
+        <div class="cardControle" data-console="GAME_BOY_ADVANCE">
+            <img src="../imagens/controleGBA.jpg" alt="Controle Game Boy Advance">
+            <span>Game Boy Advance</span>
+        </div>
+
+        <div class="cardControle" data-console="N64">
+            <img src="../imagens/controleN64.jpeg" alt="Controle Nintendo 64">
+            <span>Nintendo 64</span>
+        </div>
+
+    </div>
+
+    <button id="fecharHubControles">
+        Cancelar
+    </button>
+
+</section>
+
+<div id="fundoControles">
+
+    <div id="painelControles">
+
+		<div id="conteudoRemapeamento">
+
+			<h2>Remapear teclas</h2>
+
+			<button id="voltarHubControles" type="button">
+				Voltar aos consoles
+			</button>
+
+			<div id="listaBotoesRemapeamento">
+			</div>
+
+			<div id="botoesControles">
+				<button id="salvarControles" type="button">
+					Salvar
+				</button>
+
+				<button id="cancelarControles" type="button">
+					Cancelar
+				</button>
+			</div>
+
+		</div>
+
+		<div id="imagemControleContainer">
+			<img id="imagemControle" src="" alt="Controle do console selecionado">
+		</div>
+
+	</div>
+
+</div>
+
+<footer>
+		
+    <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        
+	<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+	
+	<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+	
+	<h3 id="empresa">PLAYOLD</h3>
+	<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+	<a href="" id="faetec">Sobre a Faetec</a>
+	
+</footer>
+
+<script src="../JS/header.js"></script>
+<script src="Configuracoes.js"></script>
+
+</body>
+
+</html>

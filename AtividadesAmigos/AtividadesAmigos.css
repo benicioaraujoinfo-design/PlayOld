@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-image: url("../imagens/fundoDesfocado.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #0f0408;
+    color: white;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+
+    background: red;
+    padding-right: 2%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size:28px;
+	left: 20px;
+    font-weight:bold;
+    text-shadow: 5px 3px 3px grey;
+    color: black;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 35%;
+	width: 9%;
+}
+#B{
+	left: 44%;
+	width: 14%;
+}
+#D{
+	left: 58.5%;
+	width: 10.8%;
+}
+#S{
+	left: 69.2%;
+	width: 20%;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+#conteudoAtividades {
+    width: min(900px, 92%);
+    min-height: 60vh;
+    margin: 0 auto;
+
+    padding-top: calc(18vh + 40px);
+    padding-bottom: 60px;
+}
+
+#cabecalhoAtividades {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#cabecalhoAtividades h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    text-shadow: 3px 3px 5px black;
+}
+
+#cabecalhoAtividades p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #dedede;
+}
+
+
+/* ========================================
+   FEED
+======================================== */
+
+#feedAtividades {
+    background: rgba(15, 25, 35, 0.94);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+}
+
+#mensagemFeed {
+    text-align: center;
+    color: #d5d5d5;
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 25px 10px;
+}
+
+#listaAtividades {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* ========================================
+   CARTÃO DE ATIVIDADE
+======================================== */
+
+.cartaoAtividade {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 18px;
+    background: #182733;
+    border: 1px solid #354653;
+    border-radius: 12px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        border-color 0.2s;
+}
+
+.cartaoAtividade:hover {
+    background: #213542;
+    border-color: #8b969e;
+    transform: translateY(-2px);
+}
+
+
+/* Foto do amigo */
+
+.fotoAmigo {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #dedede;
+    background: #333;
+}
+
+
+/* Área textual do cartão */
+
+.conteudoAtividade {
+    flex: 1;
+    min-width: 0;
+}
+
+.textoAtividade {
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.nomeAmigo {
+    font-weight: bold;
+    color: #ffdf00;
+}
+
+.dataAtividade {
+    display: block;
+    margin-top: 6px;
+
+    font-size: 13px;
+    color: #aebbc4;
+}
+
+
+/* ========================================
+   JOGO DA ATIVIDADE
+======================================== */
+
+.jogoAtividade {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 15px;
+    padding: 12px;
+
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 9px;
+}
+
+.imagemJogo {
+    width: 110px;
+    height: 85px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    border-radius: 6px;
+    background: #303030;
+}
+
+.informacoesJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.nomeJogo {
+    font-size: 17px;
+    line-height: 1.4;
+    color: white;
+    overflow-wrap: anywhere;
+}
+
+.tipoAtividade {
+    display: inline-block;
+    width: fit-content;
+
+    padding: 5px 9px;
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.tipoCompra {
+    background: #176b3a;
+    color: #d9ffe6;
+}
+
+.tipoWishlist {
+    background: #735a00;
+    color: #fff1a8;
+}
+
+
+/* ========================================
+   PAGINAÇÃO
+======================================== */
+
+#navegacaoPaginas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 25px;
+}
+
+#navegacaoPaginas button {
+    padding: 11px 18px;
+
+    border: 1px solid #737373;
+    border-radius: 7px;
+
+    background: #182733;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#navegacaoPaginas button:hover:not(:disabled) {
+    background: #354b5b;
+}
+
+#navegacaoPaginas button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#informacaoPagina {
+    font-size: 15px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}

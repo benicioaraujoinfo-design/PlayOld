@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="HomeCSS.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input type="text" id="barraPesquisa" placeholder="Pesquisar jogos..." autocomplete="off">
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img id="fotoUsuario" src="../imagens/gato.jpeg" alt="Foto de perfil">
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        
+        <a href="../AdicionarAmz/AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div class="caixa">
+    
+    <h2 id="destaque">Destaques do mês</h2>
+    
+    <section class="hero">
+
+        <button id="anterior">❮</button>
+
+        <div class="slides" id="slidesJogos">
+
+        </div>
+
+        <button id="proximo">❯</button>
+
+    </section>
+    
+</div>
+
+<div class="caixa2">
+	<section class="promocoes">
+
+		<h2 class="nomeCaixa">Promoções da Semana</h2>
+
+		<div id="cardsPromocoes">
+			
+		</div>
+
+	</section>
+
+</div>
+
+<div class="caixa3">
+	<section class="categorias">
+
+		<div class="tituloCategorias">
+			<h2 class="nomeCaixa">Categorias</h2>
+
+			<button id="botaoCategorias">▼</button>
+		</div>
+
+		<div class="categorias-grid">
+
+			<div>Ação</div>
+			<div>RPG</div>
+			<div>Luta</div>
+			<div>Aventura</div>
+
+			<div>Beat 'em up</div>
+			<div>Plataforma</div>
+			<div>Corrida</div>
+			<div>Shoot 'em up</div>
+
+		</div>
+
+</section>
+
+
+</div>
+
+<div class="caixa4">
+	
+	<section class="maisJogados">
+
+		<h2 class="nomeCaixa">Mais Jogados da Semana</h2>
+
+		<div class="cards" id="cardsMaisJogados">
+
+		</div>
+
+	</section>
+
+</div>
+
+<div class="caixa5">
+	
+<section class="consoles">
+
+    <h2 class="nomeCaixa">Consoles</h2>
+
+    <div class="consoles-carrossel">
+
+        <button
+            class="setaConsoles anteriorConsoles"
+            id="anteriorConsoles"
+            aria-label="Consoles anteriores"
+            disabled
+        >❮</button>
+
+        <div class="consoles-viewport">
+
+            <div class="consoles-grid" id="consolesGrid">
+
+                <div class="consola">
+                    <img src="../imagens/Nintendinho.png" alt="Nintendo Entertainment System">
+                    <a href="../Console/Console.html?id=1" class="porta">Nintendinho</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/SuperNintendoVector.png" alt="Super Nintendo">
+                    <a href="../Console/Console.html?id=2" class="porta">Super Nintendo</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/aerozol-nintendo-gameboy-4003938_1920.png" alt="Game Boy">
+                    <a href="../Console/Console.html?id=3" class="porta">Game Boy</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/gameBoyColorEdit.png" alt="Game Boy Color">
+                    <a href="../Console/Console.html?id=ID_GAME_BOY_COLOR" class="porta">Game Boy Color</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/aerozol-nintendo-64-4003972_1920.png" alt="Nintendo 64">
+                    <a href="../Console/Console.html?id=ID_NINTENDO_64" class="porta">Nintendo 64</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/aerozol-nintendo-gameboy-advance-3997774_1920.png" alt="Game Boy Advance">
+                    <a href="../Console/Console.html?id=ID_GAME_BOY_ADVANCE" class="porta">Game Boy Advance</a>
+                </div>
+
+                <div class="consola">
+                    <img src="../imagens/MegaDrive.png" alt="Mega Drive">
+                    <a href="../Console/Console.html?id=ID_MEGA_DRIVE" class="porta">Mega Drive</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="setaConsoles proximoConsoles"
+            id="proximoConsoles"
+            aria-label="Próximos consoles"
+        >❯</button>
+
+    </div>
+
+</section>
+
+</div>
+
+<div class="caixa6">
+	<section class="publicadoras">
+	
+	<h2 class="nomeEmp">Publicadoras</h2>
+	
+	<button class="botaoCeta">▼</button>
+	
+	<div id="publi-grid">
+	
+	</div>
+	
+	</section>
+</div>
+
+<div class="caixa7">
+	<section class="produtoras">
+	
+	<h2 class="nomeEmp">Produtoras</h2>
+	
+	<button class="botaoCeta">▼</button>
+	
+	<div id="prod-grid">
+	
+	</div>
+	
+	</section>
+</div>
+
+<footer>
+		
+    <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        
+	<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+	
+	<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+	
+	<h3 id="empresa">PLAYOLD</h3>
+	<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+	<a href="" id="faetec">Sobre a Faetec</a>
+	
+</footer>
+
+<script src="../JS/header.js"></script>
+<script src="../Home/HomeJS.js"></script>
+
+</body>
+</html>
