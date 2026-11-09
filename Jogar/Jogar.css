@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	background-color: #0F0408;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+#game {
+	width: 100%;
+	height: 100vh;
+}
+
+#mensagem {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#mensagem h1 {
+	font-size: 35px;
+	margin-bottom: 10px;
+}
+
+#mensagem p {
+	font-size: 20px;
+}
+
+#menuSaida {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+#botaoSaida {
+    width: 40px;
+    height: 40px;
+    background-color: #1b2838;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#opcoesSaida {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+#menuSaida:hover #opcoesSaida {
+    display: flex;
+}
+
+#opcoesSaida button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #1b2838;
+}
+
+#opcoesSaida button:hover {
+    background-color: #33465a;
+}

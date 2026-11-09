@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de Capa</title>
+</head>
+<body>
+
+    <h1>Teste de envio de capa</h1>
+
+    <input type="file" id="arquivo" accept="image/*">
+
+    <br><br>
+
+    <button id="enviar">Enviar capa</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        const arquivo = document.querySelector("#arquivo");
+        const botao = document.querySelector("#enviar");
+        const resultado = document.querySelector("#resultado");
+
+        let urlCapa = null;
+
+
+        botao.addEventListener("click", async () => {
+
+            const capa = arquivo.files[0];
+
+            if (!capa) {
+                resultado.textContent = "Selecione uma imagem primeiro.";
+                return;
+            }
+
+            const dados = new FormData();
+
+            dados.append("capa", capa);
+
+
+            try {
+
+                const resposta = await fetch("/upload-capa", {
+                    method: "POST",
+                    body: dados
+                });
+
+                const dadosResposta = await resposta.json();
+
+
+                if (!resposta.ok) {
+
+                    resultado.textContent = dadosResposta.erro;
+
+                    return;
+                }
+
+
+                urlCapa = dadosResposta.url;
+
+                resultado.textContent =
+                    "Capa enviada! URL recebida.";
+
+
+                console.log("Capa enviada:", urlCapa);
+
+
+                const respostaBanco = await fetch("/jogo/capa", {
+
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        IDgme: 1,
+                        url: urlCapa
+                    })
+
+                });
+
+
+                const resultadoBanco =
+                    await respostaBanco.json();
+
+
+                if (!respostaBanco.ok) {
+
+                    resultado.textContent =
+                        resultadoBanco.erro;
+
+                    return;
+                }
+
+
+                resultado.textContent =
+                    resultadoBanco.mensagem;
+
+
+                console.log(
+                    "Capa salva no banco:",
+                    urlCapa
+                );
+
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                resultado.textContent =
+                    "Erro ao enviar ou salvar a capa.";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

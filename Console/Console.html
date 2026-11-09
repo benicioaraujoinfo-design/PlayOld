@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PlayOld</title>
+	
+	<link rel ="stylesheet" href="Console.css">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input type="text" id="barraPesquisa" placeholder="Pesquisar jogos..." autocomplete="off">
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img id="fotoUsuario" src="../imagens/gato.jpeg" alt="Foto de perfil">
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        <a href="../AdicionarAmz/AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div id="fundoJogosConsole"></div>
+
+<section id="video-container">
+    
+    <section id="video">
+        
+        <video controls>
+			<source id="videoConsole" src="" type="video/mp4">
+		</video>
+		
+		<div id="capa"></div>
+		
+    </section>
+
+	<img src="" id="consoleImg">
+
+    <label for="console" class="botao">
+		<img src="../imagens/video.png" id="videoImg">
+        <div id="overlay"></div>
+        <span id="text">Abrir vídeo<br>promocional</span>
+    </label>
+
+</section>
+
+<input id="console" type="checkbox" hidden>
+	
+	<section id="principal">
+		<h1 id="nome">nome do console</h1>
+		
+		<h2 id="quant">Quantidade de jogos<br>lançados</h2>
+		<p id="numQ">1</p>
+		
+		<h2 id="ano">Lançamento</h2>
+		<p id="numA">2</p>
+		
+		<div id="espacoJogos">
+			
+			<h3 id="publi">Jogos no console</h3>
+			
+			<select id="ordenar">
+
+                <option value="padrao">
+                    Ordenar por
+                </option>
+
+                <option value="az">A - Z</option>
+
+                <option value="za">Z - A</option>
+
+                <option value="menorPreco">Menor preço</option>
+
+                <option value="maiorPreco">Maior preço</option>
+
+                <option value="maiorDesconto">Maior desconto</option>
+
+            </select>
+			
+			<section class="jogos">
+
+			<div class="cards" id="cardsConsole"></div>
+
+			</section>
+		
+		</div>
+		
+	</section>
+	
+<footer>
+		
+    <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        
+	<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+	
+	<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+	
+	<h3 id="empresa">PLAYOLD</h3>
+	<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+	<a href="" id="faetec">Sobre a Faetec</a>
+	
+</footer>
+
+<script src="../JS/header.js"></script>
+<script src="../Console/Console.js"></script>
+
+</body>
+</html>

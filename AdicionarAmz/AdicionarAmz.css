@@ -1,0 +1,993 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+
+    background: red;
+    padding-right: 2%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 10px black;
+    z-index: 3000;
+}
+
+nav{
+    display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.logoH{
+	position: absolute;
+    font-size:28px;
+	left: 20px;
+    font-weight:bold;
+    text-shadow: 5px 3px 3px grey;
+}
+
+#imgLogoH {
+	position: absolute;
+	width: 130px;
+	height: 17vh;
+	top: -6vh;
+	left: 130px;
+}
+
+#H, #B, #D, #S{
+	position: absolute;
+	font-size: 30px;
+    color: white;
+    text-decoration: none;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 30px;
+	transition: background-color .2s, color .2s;
+}
+
+#H{
+	left: 35%;
+	width: 9%;
+}
+#B{
+	left: 44%;
+	width: 14%;
+}
+#D{
+	left: 58.5%;
+	width: 10.8%;
+}
+#S{
+	left: 69.2%;
+	width: 20%;
+}
+#H:hover, #B:hover, #D:hover, #S:hover{
+    color: black;
+	background-color: grey;
+}
+
+#pesquisaContainer {
+    position: relative;
+}
+
+#barraPesquisa {
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#resultadosPesquisa {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #0f1923;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.resultadoPesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultadoPesquisa:hover {
+    background-color: #263746;
+}
+
+.resultadoPesquisa img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.resultadoPesquisa span {
+    color: white;
+    font-size: 16px;
+}
+
+#usuarioLogado {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#usuarioLogado {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#botaoUsuario {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#fotoUsuario {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#setaUsuario {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#menuUsuario {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 180px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px black;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#menuUsuario.aberto {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuUsuario a, #botaoLogout {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: none;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#menuUsuario a:hover, #botaoLogout:hover {
+    background: #ddd;
+}
+
+footer {
+	background: rgba(100, 100, 0, 0.9);
+	height: 30%;
+	min-height: 200px;
+	display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+}
+
+#direitos, #empresa {
+	position: absolute;
+	font-weight: bold;
+}
+
+#nomeF {
+	font-weight: bold;
+	left: 1%;
+	top: 40%;
+	font-size: 28px;
+	text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+	position: absolute;
+    width: 130px;
+	height: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+#direitos {
+	left: 20%;
+	top: 30%;
+	font-size: 15px;
+}
+
+#empresa {
+	left: 55%;
+	top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+	position: absolute;
+	text-decoration: none;
+	color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+	color: white;
+}
+
+#peter {
+	top: 40%;
+	left: 55%;
+}
+
+#faetec {
+	top: 60%;
+	left: 55%;
+}
+
+/* =========================
+   CONTEÚDO DE AMIZADES
+========================= */
+
+.conteudoAmigos {
+    width: 100%;
+    flex: 1;
+    padding: calc(18vh + 45px) 20px 65px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.painelAmigos {
+    width: min(820px, 100%);
+    padding: clamp(22px, 4vw, 42px);
+    background: rgba(15, 25, 35, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+.cabecalhoPainel {
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 25px;
+}
+
+.etiqueta {
+    color: #e5e900;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.cabecalhoPainel h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-bottom: 12px;
+}
+
+.descricaoPainel {
+    color: #c5cbd1;
+    line-height: 1.6;
+    max-width: 620px;
+}
+
+.rotuloPesquisa {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.campoPesquisaAmigos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 54px;
+    padding: 0 14px;
+    background: #080d12;
+    border: 2px solid #465563;
+    border-radius: 10px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.campoPesquisaAmigos:focus-within {
+    border-color: #e5e900;
+    box-shadow: 0 0 0 3px rgba(229, 233, 0, 0.12);
+}
+
+.iconePesquisa {
+    color: #c6cbd0;
+    font-size: 30px;
+    line-height: 1;
+    transform: rotate(-20deg);
+}
+
+#pesquisaAmigos {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    padding: 14px 0;
+}
+
+#pesquisaAmigos::placeholder {
+    color: #9da7b0;
+}
+
+#limparPesquisa {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #cbd1d6;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#limparPesquisa:hover {
+    color: white;
+}
+
+#dicaPesquisa {
+    color: #aab3bc;
+    font-size: 13px;
+    margin-top: 9px;
+}
+
+#estadoPesquisa {
+    min-height: 22px;
+    margin-top: 22px;
+    color: #d3d9df;
+    font-size: 14px;
+}
+
+#estadoPesquisa.erro {
+    color: #ff8585;
+}
+
+.listaUsuarios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartaoUsuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #344452;
+    border-radius: 12px;
+    background: #17232e;
+    transition: background-color .2s, border-color .2s, transform .2s;
+}
+
+.cartaoUsuario:hover {
+    background: #202f3c;
+    border-color: #637787;
+    transform: translateY(-1px);
+}
+
+.fotoResultado {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid #657584;
+    object-fit: cover;
+    background: #0f1923;
+}
+
+.informacoesUsuario {
+    flex: 1;
+    min-width: 0;
+}
+
+.nomeUsuario {
+    overflow-wrap: anywhere;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.subtituloUsuario {
+    margin-top: 5px;
+    color: #aab5bf;
+    font-size: 13px;
+}
+
+.botaoAdicionar {
+    flex-shrink: 0;
+    padding: 11px 15px;
+    border: 0;
+    border-radius: 8px;
+    background: #e5e900;
+    color: #111;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color .2s, transform .2s;
+}
+
+.botaoAdicionar:hover:not(:disabled) {
+    background: #f6fa28;
+    transform: translateY(-1px);
+}
+
+.botaoAdicionar:disabled {
+    cursor: not-allowed;
+    background: #7d8181;
+    color: #ececec;
+}
+
+.notaPrivacidade {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 14px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #aeb8c1;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.notaPrivacidade span {
+    color: #e5e900;
+    font-size: 18px;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background: rgba(100, 100, 0, 0.9);
+    min-height: 200px;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -10px 10px black;
+    position: relative;
+    margin-top: auto;
+}
+
+#direitos, #empresa {
+    position: absolute;
+    font-weight: bold;
+}
+
+#nomeF {
+    font-weight: bold;
+    left: 1%;
+    top: 40%;
+    font-size: 28px;
+    text-shadow: 5px 3px 5px grey;
+}
+
+#imgLogoF {
+    position: absolute;
+    width: 130px;
+    height: 120px;
+    top: 20%;
+    left: 10%;
+    object-fit: contain;
+}
+
+#direitos {
+    left: 20%;
+    top: 30%;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#empresa {
+    left: 55%;
+    top: 20%;
+}
+
+#peter, #faetec, #nomeF {
+    position: absolute;
+    text-decoration: none;
+    color: black;
+}
+
+#peter:hover, #faetec:hover, #nomeF:hover {
+    color: white;
+}
+
+#peter {
+    top: 40%;
+    left: 55%;
+}
+
+#faetec {
+    top: 60%;
+    left: 55%;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1100px) {
+    .logoH {
+        left: 12px;
+        font-size: 22px;
+    }
+
+    #imgLogoH {
+        left: 100px;
+        width: 95px;
+    }
+
+    #H { left: 23%; width: 8%; }
+    #B { left: 31%; width: 14%; }
+    #D { left: 45%; width: 14%; }
+    #S { left: 59%; width: 17%; }
+
+    #barraPesquisa {
+        width: 150px;
+    }
+
+    #usuarioLogado {
+        margin-left: 8px;
+    }
+
+    #direitos {
+        left: 24%;
+        font-size: 12px;
+    }
+
+    #imgLogoF {
+        left: 12%;
+        width: 90px;
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        height: auto;
+        min-height: 150px;
+        padding: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .logoH {
+        top: 18px;
+        left: 14px;
+    }
+
+    #imgLogoH {
+        top: -15px;
+        left: 85px;
+        width: 85px;
+        height: 65px;
+        min-height: 0;
+    }
+
+    nav {
+        order: 3;
+        height: 44px;
+        flex-basis: 100%;
+        margin-top: 5px;
+        justify-content: space-around;
+    }
+
+    #H, #B, #D, #S {
+        position: static;
+        width: auto;
+        height: 44px;
+        padding: 12px 6px;
+        font-size: clamp(11px, 2.6vw, 15px);
+    }
+
+    #pesquisaContainer {
+        margin-left: auto;
+        margin-top: 5px;
+    }
+
+    #barraPesquisa {
+        width: min(42vw, 210px);
+        height: 36px;
+    }
+
+    #usuarioLogado {
+        margin: 5px 0 0 5px;
+    }
+
+    #fotoUsuario {
+        width: 38px;
+        height: 38px;
+    }
+
+    .conteudoAmigos {
+        padding: 185px 12px 35px;
+    }
+
+    .painelAmigos {
+        padding: 22px 16px;
+    }
+
+    .cartaoUsuario {
+        flex-wrap: wrap;
+    }
+
+    .fotoResultado {
+        width: 52px;
+        height: 52px;
+    }
+
+    .botaoAdicionar {
+        width: 100%;
+    }
+
+    footer {
+        min-height: 230px;
+    }
+
+    #nomeF {
+        top: 20px;
+        left: 15px;
+        font-size: 22px;
+    }
+
+    #imgLogoF {
+        top: 45px;
+        left: 15px;
+        width: 75px;
+        height: 80px;
+    }
+
+    #direitos {
+        left: 105px;
+        top: 35px;
+        right: 10px;
+        font-size: 10px;
+    }
+
+    #empresa {
+        left: 15px;
+        top: 145px;
+        font-size: 15px;
+    }
+
+    #peter {
+        left: 15px;
+        top: 175px;
+        font-size: 12px;
+    }
+
+    #faetec {
+        left: 15px;
+        top: 198px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 390px) {
+    #barraPesquisa {
+        width: 125px;
+    }
+
+    #setaUsuario {
+        display: none;
+    }
+
+    .cabecalhoPainel h1 {
+        font-size: 27px;
+    }
+
+    #direitos {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================
+   PEDIDOS DE AMIZADE RECEBIDOS
+========================================= */
+
+.secaoPedidos {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cabecalhoPedidos {
+    margin-bottom: 18px;
+}
+
+.cabecalhoPedidos h2 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.cabecalhoPedidos p {
+    margin: 0;
+    color: #b9c0ca;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#estadoPedidos {
+    margin: 12px 0;
+    color: #b9c0ca;
+    font-size: 14px;
+}
+
+#estadoPedidos.erro {
+    color: #ff7777;
+}
+
+.listaPedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartaoPedido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.cartaoPedido:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cartaoPedido .fotoResultado {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cartaoPedido .informacoesUsuario {
+    flex: 1;
+    min-width: 0;
+}
+
+.botoesPedido {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.botoesPedido button {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.botaoAceitar {
+    background: #258447;
+}
+
+.botaoRecusar {
+    background: #a83232;
+}
+
+.botoesPedido button:hover:not(:disabled) {
+    filter: brightness(1.2);
+}
+
+.botoesPedido button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+@media (max-width: 600px) {
+    .cartaoPedido {
+        flex-wrap: wrap;
+    }
+
+    .cartaoPedido .informacoesUsuario {
+        flex: 1;
+    }
+
+    .botoesPedido {
+        width: 100%;
+    }
+
+    .botoesPedido button {
+        flex: 1;
+    }
+}
+
+
+/* =========================================
+   MEUS AMIGOS
+========================================= */
+
+.secaoMeusAmigos {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cabecalhoMeusAmigos {
+    margin-bottom: 18px;
+}
+
+.cabecalhoMeusAmigos h2 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.cabecalhoMeusAmigos p {
+    margin: 0;
+    color: #b9c0ca;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#estadoAmigos {
+    margin: 12px 0;
+    color: #b9c0ca;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#estadoAmigos.erro {
+    color: #ff7777;
+}
+
+.listaAmigos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartaoAmigo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.cartaoAmigo:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cartaoAmigo:focus-visible {
+    outline: 2px solid #e2f205;
+    outline-offset: 3px;
+}
+
+.cartaoAmigo .fotoResultado {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cartaoAmigo .informacoesUsuario {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .cartaoAmigo {
+        padding: 12px;
+    }
+}
+
+
+/* =========================================
+   BOTÃO CANCELAR AMIZADE
+========================================= */
+
+.botaoCancelarAmizade {
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border: 1px solid rgba(255, 90, 90, 0.45);
+    border-radius: 6px;
+    background: rgba(168, 50, 50, 0.15);
+    color: #ff8585;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.botaoCancelarAmizade:hover:not(:disabled) {
+    background: #a83232;
+    border-color: #a83232;
+    color: #ffffff;
+}
+
+.botaoCancelarAmizade:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+@media (max-width: 600px) {
+    .cartaoAmigo .botaoCancelarAmizade {
+        width: 100%;
+    }
+}

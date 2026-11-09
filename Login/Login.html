@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="LoginCSS.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<section id="caixona">
+	
+	<img src="../imagens/LogoPlayOldJurassic.png" id="logo">
+	<h1>PLAYOLD</h1>
+
+    <form id="formLogin">
+	
+        <label for="nome" id="no">Nome</label>
+        <input 
+            type="text" placeholder="Nome do Usuário ou Email" id="nome" required>
+        
+        <label for="senha" id="se">Senha</label>
+        <input 
+            type="password" placeholder="Senha" id="senha" required>
+
+        <button type="submit" id="login">
+            <span>Login</span>
+        </button>
+
+    </form>
+	
+	<a href="../Cadastro/Cadastro.html" id="cadastro">
+		<span>Cadastrar</span>
+	</a>
+	
+	<p>Se você não possui uma conta na PlayOld</p>
+
+</section>
+
+<script src="Login.js"></script>
+
+</body>
+</html>

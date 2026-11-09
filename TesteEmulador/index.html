@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teste EmulatorJS - PlayOld</title>
+
+    <link rel="stylesheet" href="teste.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>PlayOld - Teste de Emulador</h1>
+        <p>Super Mario Bros. - NES</p>
+    </header>
+
+    <main>
+
+        <div id="game"></div>
+
+        <section id="controles">
+
+            <h2>Controles</h2>
+
+            <div class="controle">
+                <strong>Direcional:</strong>
+                Setas do teclado
+            </div>
+
+            <div class="controle">
+                <strong>A:</strong>
+                Z
+            </div>
+
+            <div class="controle">
+                <strong>B:</strong>
+                X
+            </div>
+
+            <div class="controle">
+                <strong>Start:</strong>
+                Enter
+            </div>
+
+            <div class="controle">
+                <strong>Select:</strong>
+                Shift
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+    EJS_player = "#game";
+
+    EJS_core = "nes";
+
+    EJS_gameUrl = "roms/Super%20Mario%20Bros.%20(Europe)%20(PAL-SM).nes";
+
+    EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+
+    EJS_gameName = "Super Mario Bros.";
+
+    EJS_startOnLoaded = true;
+</script>
+
+<script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+    <script src="teste.js"></script>
+
+</body>
+
+</html>

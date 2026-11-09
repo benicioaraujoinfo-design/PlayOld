@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+body {
+	background-image: url("../imagens/fundoDesfocado.png");
+}
+
+#caixona {
+	position: relative;
+	background-color: red;
+	width: 35%;
+	height: 80%;
+	top: 6%;
+	left: 32%;
+	border-radius: 15px;
+}
+#logo {
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	top: 4%;
+	left: 34%;
+}
+
+h1 {
+	position: absolute;
+	font-weight: bold;
+	top: 36%;
+	left: 35%;
+	text-shadow: 4px -3px 6px #212121;
+}
+
+#no, #se, p {
+	position: absolute;
+	font-weight: bold;
+	font-size: 20px;
+	text-shadow: 4px -3px 4px #212121;
+}
+
+#no {
+	top: 50%;
+	left: 19.5%;
+}
+
+#se {
+	top: 59.6%;
+	left: 19%;
+}
+
+p {
+	top: 81%;
+	left: 11%;
+}
+
+#nome, #senha {
+	position: absolute;
+	border-radius: 15px;
+	text-align: center;
+	box-shadow: 0 7px 10px black;
+}
+
+#nome {
+	top: 49.5%;
+	left: 32%;
+	width: 40%;
+	height: 6%;
+}
+
+#senha {
+	top: 59%;
+	left: 32%;
+	height: 6%;
+	width: 40%;
+}
+
+#cadastro, #login {
+	position: absolute;
+	background-color: yellow;
+	transition: .3s;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	color: black;
+	display: flex;
+	text-decoration: none;
+	width: 20%;
+	height: 8%;
+	left: 40%;
+	border-radius: 15px;
+	box-shadow: 0 7px 10px black;
+	cursor: pointer;
+}
+
+#cadastro:hover, #login:hover {
+	filter: brightness(50%);
+}
+
+#cadastro {
+	top: 86%;
+}
+
+#login {
+    border: none;
+    font-family: "Roboto";
+    font-size: 16px;
+	top: 69%;
+}

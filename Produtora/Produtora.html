@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtora - PlayOld</title>
+
+    <link rel="stylesheet" href="Produtora.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input
+			type="text"
+			id="barraPesquisa"
+			placeholder="Pesquisar jogos..."
+			autocomplete="off"
+		>
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img
+        id="fotoUsuario"
+        src="../imagens/gato.jpeg"
+        alt="Foto de perfil"
+    >
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">
+            Perfil
+        </a>
+
+        <a href="../Configuracoes/Configuracoes.html">
+            Configurações
+        </a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<div id="fundoJogosProdutora"></div>
+
+<main id="principal">
+
+    <section id="cabecalhoProdutora">
+
+        <div id="produtoraImg">
+            <img src="" id="logoProdutora">
+        </div>
+
+    </section>
+    
+    <div id="dadosProdutora">
+
+		<div class="dadoProdutora">
+			<span class="numeroDado" id="quantidadeJogos"></span>
+
+			<span class="textoDado">Jogos publicados</span>
+		</div>
+
+		<div class="dadoProdutora">
+			<span class="numeroDado" id="anoCriacao"></span>
+
+			<span class="textoDado">Fundação</span>
+		</div>
+
+			<div class="dadoProdutora"></div>
+
+	</div>
+
+    <section id="secaoJogos">
+
+        <div id="tituloJogos">
+
+            <h2>
+                Jogos da produtora
+            </h2>
+
+            <select id="ordenar">
+
+                <option value="padrao">
+                    Ordenar por
+                </option>
+
+                <option value="az">A - Z</option>
+
+                <option value="za">Z - A</option>
+
+                <option value="menorPreco">Menor preço</option>
+
+                <option value="maiorPreco">Maior preço</option>
+
+                <option value="maiorDesconto">Maior desconto</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="cards" id="cardsJogos"></div>
+
+
+        <div id="semJogos">
+
+            <h2>Nenhum jogo encontrado</h2>
+
+            <p>Esta produtora ainda não possui jogos cadastrados.</p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+		
+		<a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+			
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF">
+		
+		<p id="direitos">© PlayOld Corporation 2026. Todos os direitos reservados.<br>Todas as marcas comerciais são propriedades dos<br>respectivos proprietários nos E.U.A e outros países.<br>IVA incluido em todos os preços conforme aplicável.</p>
+		
+		<h3 id="empresa">PLAYOLD</h3>
+		<a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+		<a href="" id="faetec">Sobre a Faetec</a>
+		
+	</footer>
+
+<script src="../JS/header.js"></script>
+<script src="../Produtora/Produtora.js"></script>
+
+</body>
+
+</html>

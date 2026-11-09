@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOld</title>
+
+    <link rel="stylesheet" href="AdicionarAmz.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+
+    <div class="logoH">
+        PLAYOLD
+		<img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoH">
+    </div>
+
+    <nav>
+        <a href="../Home/Home.html" id="H">Home</a>
+        <a href="../Biblioteca/Biblioteca.html" id="B">Biblioteca</a>
+        <a href="../ListaDesejos/ListaDesejos.html" id="D">Lista de Desejos</a>
+        <a href="../Configuracoes/Configuracoes.html" id="S">Configurações</a>
+    </nav>
+    
+    <div id="pesquisaContainer">
+
+		<input
+			type="text"
+			id="barraPesquisa"
+			placeholder="Pesquisar jogos..."
+			autocomplete="off"
+		>
+
+    <div id="resultadosPesquisa"></div>
+
+</div>
+    
+    <div id="usuarioLogado">
+
+    <button id="botaoUsuario">
+
+    <img
+        id="fotoUsuario"
+        src="../imagens/gato.jpeg"
+        alt="Foto de perfil"
+    >
+
+    <span id="setaUsuario">▼</span>
+
+</button>
+
+    <div id="menuUsuario">
+
+        <a href="../Perfil/Perfil.html">Perfil</a>
+
+        <a href="../Configuracoes/Configuracoes.html">Configurações</a>
+        
+        <a href="../Carrinho/Carrinho.html">Carrinho</a>
+        
+        <a href="AdicionarAmz.html">Amigos</a>
+
+        <button id="botaoLogout">
+            Sair
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+    <main class="conteudoAmigos">
+        <section class="painelAmigos">
+            <div class="cabecalhoPainel">
+                <p class="etiqueta">COMUNIDADE PLAYOLD</p>
+                <h1>Adicionar amigos</h1>
+                <p class="descricaoPainel">
+                    Encontre outros jogadores e envie pedidos para adicioná-los à sua lista de amigos.
+                </p>
+            </div>
+            
+            
+            <section class="secaoPedidos" aria-labelledby="tituloPedidos">
+                <div class="cabecalhoPedidos">
+                    <h2 id="tituloPedidos">Pedidos recebidos</h2>
+                    <p>Veja quem quer adicionar você como amigo.</p>
+                </div>
+
+                <p id="estadoPedidos" role="status" aria-live="polite">
+                    Carregando pedidos...
+                </p>
+
+                <div id="listaPedidos" class="listaPedidos"></div>
+            </section>
+            
+            
+            <section class="secaoMeusAmigos" aria-labelledby="tituloMeusAmigos">
+                <div class="cabecalhoMeusAmigos">
+                    <h2 id="tituloMeusAmigos">Meus amigos</h2>
+                    <p>Jogadores que fazem parte da sua lista de amigos.</p>
+                </div>
+
+                <p id="estadoAmigos" role="status" aria-live="polite">
+                    Carregando amigos...
+                </p>
+
+                <div id="listaAmigos" class="listaAmigos"></div>
+            </section>
+
+
+
+            <label for="pesquisaAmigos" class="rotuloPesquisa">Pesquisar jogadores</label>
+            <div class="campoPesquisaAmigos">
+                <span class="iconePesquisa" aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="pesquisaAmigos"
+                    placeholder="Digite um nome de usuário..."
+                    autocomplete="off"
+                    minlength="2"
+                    aria-describedby="dicaPesquisa"
+                >
+                <button type="button" id="limparPesquisa" aria-label="Limpar pesquisa" title="Limpar pesquisa">×</button>
+            </div>
+            <p id="dicaPesquisa">Digite pelo menos 2 caracteres para pesquisar.</p>
+
+            <div id="estadoPesquisa" role="status" aria-live="polite"></div>
+            <div id="listaUsuarios" class="listaUsuarios"></div>
+
+            <div class="notaPrivacidade">
+                <span aria-hidden="true">ⓘ</span>
+                <p>Você só encontrará usuários cadastrados no PlayOld. Seu próprio perfil não aparece nos resultados.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="../Home/Home.html" id="nomeF">PLAYOLD</a>
+        <img src="../imagens/LogoPlayOldJurassic.png" id="imgLogoF" alt="Logo PlayOld">
+
+        <p id="direitos">
+            © PlayOld Corporation 2026. Todos os direitos reservados.<br>
+            Todas as marcas comerciais são propriedades dos<br>
+            respectivos proprietários nos E.U.A e outros países.<br>
+            IVA incluído em todos os preços conforme aplicável.
+        </p>
+
+        <h3 id="empresa">PLAYOLD</h3>
+        <a href="../sobrePeter/sobrePeter.html" id="peter">Sobre a Peter Production's</a>
+        <a href="" id="faetec">Sobre a Faetec</a>
+    </footer>
+
+    <script src="../JS/header.js"></script>
+    <script src="AdicionarAmz.js"></script>
+</body>
+</html>

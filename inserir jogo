@@ -1,0 +1,375 @@
+INSERT INTO jogos (
+    Game_Name,
+    img1,
+    Descricao,
+    desconto,
+    produtora,
+    publicadora,
+    data_lancamento,
+    preco,
+    class_idade,
+    genero,
+    rom,
+    console
+)
+VALUES (
+'Super Mario All-Stars',
+'https://res.cloudinary.com/bynygd0s/image/upload/v1791309304/marioallstar.png',
+'Coletânea que reúne versões aprimoradas de quatro jogos clássicos: Super Mario Bros., Super Mario Bros. 2, Super Mario Bros. 3 e Super Mario Bros.: The Lost Levels. Os jogos apresentam gráficos e áudio refeitos, mantendo a jogabilidade original das aventuras.',
+29,
+'Nintendo',
+'Nintendo',
+'1993-07-14',
+38.99,
+10,
+'Plataforma',
+'https://res.cloudinary.com/bynygd0s/raw/upload/v1791309362/Super_Mario_All-Stars_Super_Mario_World_USA.sfc',
+'SNES'
+);
+
+inserir no console:
+
+UPDATE jogos
+SET console = 'Super Nintendo'
+WHERE Game_Name = 'Disney s Aladdin';
+
+
+INSERT INTO jogos_consoles (IDjgo, IDcsl)
+SELECT j.IDgme, c.IDcsl
+FROM jogos AS j
+INNER JOIN console AS c
+ON c.Console_Nome = j.console
+WHERE j.Game_Name = 'Disney s Aladdin'
+AND c.Console_Nome = 'Super Nintendo';
+
+libreoffice --impress
+run-as-spot flatpak run com.valvesoftware.Steam
+
+
+UPDATE jogos
+SET
+    Game_Name = 'Super Castlevania IV'
+WHERE IDgme = 23;
+
+INSERT INTO console
+(
+    Console_Nome,
+    Console_Data,
+    Console_Distribuidora,
+    geracao,
+    QNTjogos,
+    imagem,
+    video
+)
+VALUES
+(
+    'Nintendo Entertainment System',
+    '1983',
+    'Nintendo',
+    3,
+    0,
+    'https://res.cloudinary.com/bynygd0s/image/upload/v1790058132/NES-removebg-preview.png',
+    'https://res.cloudinary.com/bynygd0s/video/upload/v1790057828/First_NES_commercial_1985_360P.mp4'
+);
+
+INSERT INTO jogos_consoles (IDjgo, IDcsl)
+VALUES
+    (1, 1),
+    (2, 1),
+    (3, 1),
+    (4, 1),
+    (5, 1),
+    (6, 1),
+    (7, 1),
+    (8, 1),
+    (9, 1),
+    (10, 1),
+    (11, 1);
+
+INSERT INTO console
+    (Console_Nome, Console_Data, geracao, QNTjogos, imagem, video)
+VALUES
+    ('Game Boy Color', '1998', 5, 0,
+     '../imagens/GameBoyColor.png',
+     NULL);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MariaDB [PlayOld]> show * from console;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from console' at line 1
+MariaDB [PlayOld]> use * from console;
+ERROR 1049 (42000): Unknown database '*'
+MariaDB [PlayOld]> DESCRIBE console;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| IDcsl        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| Console_Nome | varchar(68)  | NO   |     | NULL    |                |
+| Console_Data | varchar(8)   | YES  |     | NULL    |                |
+| geracao      | int(11)      | YES  |     | NULL    |                |
+| QNTjogos     | int(11)      | YES  |     | 0       |                |
+| imagem       | varchar(255) | YES  |     | NULL    |                |
+| video        | varchar(255) | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+7 rows in set (0,003 sec)
+
+MariaDB [PlayOld]> SHOW CREATE TABLE console;
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table   | Create Table                                                                                                                                                                                                                                                                                                                                                                                                     |
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| console | CREATE TABLE `console` (
+  `IDcsl` int(11) NOT NULL AUTO_INCREMENT,
+  `Console_Nome` varchar(68) NOT NULL,
+  `Console_Data` varchar(8) DEFAULT NULL,
+  `geracao` int(11) DEFAULT NULL,
+  `QNTjogos` int(11) DEFAULT 0,
+  `imagem` varchar(255) DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`IDcsl`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci |
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0,038 sec)
+
+MariaDB [PlayOld]> select * from console;
++-------+-------------------------------+--------------+---------+----------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| IDcsl | Console_Nome                  | Console_Data | geracao | QNTjogos | imagem                                                                                | video                                                                                           |
++-------+-------------------------------+--------------+---------+----------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+|     1 | Nintendo Entertainment System | 1983         |       3 |       11 | https://res.cloudinary.com/bynygd0s/image/upload/v1790058132/NES-removebg-preview.png | https://res.cloudinary.com/bynygd0s/video/upload/v1790057828/First_NES_commercial_1985_360P.mp4 |
+|     2 | Super Nintendo                | NULL         |    NULL |        0 | NULL                                                                                  | NULL                                                                                            |
+|     3 | Game Boy Color                | NULL         |    NULL |        0 | NULL                                                                                  | NULL                                                                                            |
+|     4 | Mega Drive                    | NULL         |    NULL |        0 | NULL                                                                                  | NULL                                                                                            |
++-------+-------------------------------+--------------+---------+----------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+4 rows in set (0,043 sec)
+
+MariaDB [PlayOld]> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- 5. CONSUL-- =====================================================================TAS SQL
+-- =====================================================================
+
+-- ------------------------- CONSULTAS BÁSICAS -------------------------
+-- a) Todos os clientes
+SELECT * FROM clientes;
+
+-- b) Animais de um determinado cliente
+SELECT a.id_animal, a.nome, a.data_nascimento, a.sexo, a.peso
+FROM animais a
+JOIN clientes c ON c.id_cliente = a.id_cliente
+WHERE c.nome = 'Carlos Silva';
+
+-- c) Veterinários cadastrados
+SELECT id_veterinario, nome, crmv, telefone, email, data_contratacao
+FROM veterinarios
+ORDER BY nome;
+
+-- d) Procedimentos com valor superior a determinado valor
+SELECT id_procedimento, nome, valor_padrao
+FROM procedimentos
+WHERE valor_padrao > 100
+ORDER BY valor_padrao DESC;
+
+-- e) Medicamentos de determinado fabricante
+SELECT id_medicamento, nome, principio_ativo, apresentacao, preco
+FROM medicamentos
+WHERE fabricante = 'Ourofino';
+
+-- ---------------------------- JOIN ----------------------------------
+-- f) Animal, proprietário e espécie
+SELECT a.nome AS animal, c.nome AS proprietario, e.nome_especie AS especie
+FROM animais a
+JOIN clientes c ON c.id_cliente = a.id_cliente
+JOIN especies e ON e.id_especie = a.id_especie
+ORDER BY a.nome;
+
+-- g) Consultas: data, horário, animal, proprietário e veterinário
+SELECT co.data_consulta, co.horario,
+       a.nome  AS animal,
+       c.nome  AS proprietario,
+       v.nome  AS veterinario
+FROM consultas co
+JOIN animais a       ON a.id_animal = co.id_animal
+JOIN clientes c      ON c.id_cliente = a.id_cliente
+JOIN veterinarios v  ON v.id_veterinario = co.id_veterinario
+ORDER BY co.data_consulta, co.horario;
+
+-- h) Veterinários e suas especialidades
+SELECT v.nome AS veterinario, es.nome AS especialidade
+FROM veterinarios v
+JOIN veterinario_especialidade ve ON ve.id_veterinario = v.id_veterinario
+JOIN especialidades es            ON es.id_especialidade = ve.id_especialidade
+ORDER BY v.nome, es.nome;
+
+-- i) Procedimentos realizados em cada consulta
+SELECT co.id_consulta, co.data_consulta, a.nome AS animal,
+       p.nome AS procedimento, cp.quantidade, cp.valor_cobrado
+FROM consultas co
+JOIN animais a                ON a.id_animal = co.id_animal
+JOIN consulta_procedimento cp ON cp.id_consulta = co.id_consulta
+JOIN procedimentos p          ON p.id_procedimento = cp.id_procedimento
+ORDER BY co.id_consulta, p.nome;
+
+-- j) Medicamentos prescritos para determinado animal
+SELECT a.nome AS animal, co.data_consulta, m.nome AS medicamento,
+       ip.dosagem, ip.frequencia, ip.duracao_tratamento
+FROM animais a
+JOIN consultas co        ON co.id_animal = a.id_animal
+JOIN prescricoes pr      ON pr.id_consulta = co.id_consulta
+JOIN itens_prescricao ip ON ip.id_prescricao = pr.id_prescricao
+JOIN medicamentos m      ON m.id_medicamento = ip.id_medicamento
+WHERE a.nome = 'Thor'
+ORDER BY co.data_consulta;
+
+-- -------------------------- LEFT JOIN -------------------------------
+-- k) Todos os veterinários, inclusive os sem consultas
+SELECT v.nome AS veterinario, COUNT(co.id_consulta) AS total_consultas
+FROM veterinarios v
+LEFT JOIN consultas co ON co.id_veterinario = v.id_veterinario
+GROUP BY v.id_veterinario, v.nome
+ORDER BY total_consultas DESC;
+
+-- l) Todos os procedimentos, inclusive os nunca utilizados
+SELECT p.nome AS procedimento, COUNT(cp.id_consulta) AS vezes_realizado
+FROM procedimentos p
+LEFT JOIN consulta_procedimento cp ON cp.id_procedimento = p.id_procedimento
+GROUP BY p.id_procedimento, p.nome
+ORDER BY vezes_realizado DESC;
+
+-- m) Todos os clientes, inclusive os sem animais
+SELECT c.nome AS cliente, COUNT(a.id_animal) AS total_animais
+FROM clientes c
+LEFT JOIN animais a ON a.id_cliente = c.id_cliente
+GROUP BY c.id_cliente, c.nome
+ORDER BY total_animais DESC;
+
+-- -------------------------- GROUP BY --------------------------------
+-- n) Quantidade de animais por espécie
+SELECT e.nome_especie AS especie, COUNT(a.id_animal) AS total_animais
+FROM especies e
+LEFT JOIN animais a ON a.id_especie = e.id_especie
+GROUP BY e.id_especie, e.nome_especie;
+
+-- o) Quantidade de consultas por veterinário
+SELECT v.nome AS veterinario, COUNT(co.id_consulta) AS total_consultas
+FROM veterinarios v
+JOIN consultas co ON co.id_veterinario = v.id_veterinario
+GROUP BY v.id_veterinario, v.nome
+ORDER BY total_consultas DESC;
+
+-- p) Quantidade de consultas por mês
+SELECT DATE_FORMAT(data_consulta, '%Y-%m') AS mes, COUNT(*) AS total_consultas
+FROM consultas
+GROUP BY DATE_FORMAT(data_consulta, '%Y-%m')
+ORDER BY mes;
+
+-- q) Valor total recebido pela clínica por forma de pagamento (apenas pagos)
+SELECT forma_pagamento, SUM(valor) AS total_recebido
+FROM pagamentos
+WHERE status = 'Pago'
+GROUP BY forma_pagamento
+ORDER BY total_recebido DESC;
+
+-- --------------------------- HAVING ---------------------------------
+-- r) Veterinários com mais de 3 consultas
+SELECT v.nome AS veterinario, COUNT(co.id_consulta) AS total_consultas
+FROM veterinarios v
+JOIN consultas co ON co.id_veterinario = v.id_veterinario
+GROUP BY v.id_veterinario, v.nome
+HAVING COUNT(co.id_consulta) > 3;
+
+-- s) Espécies com mais de 3 animais
+SELECT e.nome_especie AS especie, COUNT(a.id_animal) AS total_animais
+FROM especies e
+JOIN animais a ON a.id_especie = e.id_especie
+GROUP BY e.id_especie, e.nome_especie
+HAVING COUNT(a.id_animal) > 3;
+
+-- t) Procedimentos realizados mais de 5 vezes
+SELECT p.nome AS procedimento, COUNT(cp.id_consulta) AS vezes_realizado
+FROM procedimentos p
+JOIN consulta_procedimento cp ON cp.id_procedimento = p.id_procedimento
+GROUP BY p.id_procedimento, p.nome
+HAVING COUNT(cp.id_consulta) > 5;
+
+-- --------------------- FUNÇÕES DE AGREGAÇÃO -------------------------
+-- COUNT, SUM, AVG, MAX e MIN sobre os pagamentos efetivamente pagos
+SELECT COUNT(*)   AS qtd_pagamentos,
+       SUM(valor) AS faturamento_total,
+       AVG(valor) AS ticket_medio,
+       MAX(valor) AS maior_pagamento,
+       MIN(valor) AS menor_pagamento
+FROM pagamentos
+WHERE status = 'Pago';
+
+-- MAX / MIN / AVG sobre os procedimentos
+SELECT MAX(valor_padrao) AS procedimento_mais_caro,
+       MIN(valor_padrao) AS procedimento_mais_barato,
+       AVG(valor_padrao) AS valor_medio
+FROM procedimentos;
+
+-- =====================================================================
+-- 6. CONSULTAS-DESAFIO (criadas pelo grupo)
+-- =====================================================================
+
+-- Desafio 1: Qual o faturamento (já pago) gerado por cada veterinário?
+-- (JOIN + GROUP BY + SUM + AVG)
+SELECT v.nome AS veterinario,
+       COUNT(co.id_consulta) AS consultas_pagas,
+       SUM(pg.valor)         AS faturamento,
+       AVG(pg.valor)         AS ticket_medio
+FROM pagamentos pg
+JOIN consultas co    ON co.id_consulta = pg.id_consulta
+JOIN veterinarios v  ON v.id_veterinario = co.id_veterinario
+WHERE pg.status = 'Pago'
+GROUP BY v.id_veterinario, v.nome
+ORDER BY faturamento DESC;
+
+-- Desafio 2: Quais clientes estão com pagamento pendente e quanto devem?
+-- (útil para o setor de cobrança - JOIN em 4 tabelas)
+SELECT c.nome AS cliente, c.telefone, a.nome AS animal,
+       co.data_consulta, pg.valor AS valor_pendente
+FROM pagamentos pg
+JOIN consultas co ON co.id_consulta = pg.id_consulta
+JOIN animais a    ON a.id_animal = co.id_animal
+JOIN clientes c   ON c.id_cliente = a.id_cliente
+WHERE pg.status = 'Pendente'
+ORDER BY co.data_consulta;
+
+-- Desafio 3: Quais são os medicamentos mais prescritos pela clínica?
+-- (JOIN + GROUP BY + HAVING + COUNT/SUM)
+SELECT m.nome AS medicamento, m.fabricante,
+       COUNT(ip.id_prescricao) AS vezes_prescrito,
+       SUM(ip.quantidade)      AS unidades_prescritas
+FROM medicamentos m
+JOIN itens_prescricao ip ON ip.id_medicamento = m.id_medicamento
+GROUP BY m.id_medicamento, m.nome, m.fabricante
+HAVING COUNT(ip.id_prescricao) >= 3
+ORDER BY vezes_prescrito DESC, unidades_prescritas DESC;
