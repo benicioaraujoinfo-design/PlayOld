@@ -1,14 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend do projeto PlayOld",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.11.0",
