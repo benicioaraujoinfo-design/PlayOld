@@ -1,0 +1,25 @@
+# Dependências do Node.js
+node_modules/
+
+# Arquivos de configuração e segredos
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+*.swp
+
+# ROMs de teste
+*.nes
+*.sfc
+*.smc
+*.gba
+*.gb
+*.gbc
+*.zip
