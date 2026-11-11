@@ -785,14 +785,14 @@ input{
 }
 
 .caixona-left {
-    transform: translateX(74vh);
+    transform: translateX(67vh);
     top: 10vh;
     padding: 20px;
     overflow: hidden;
 }
 
 .caixona-right {
-	transform: translateX(-54vh);
+	transform: translateX(-58vh);
     padding: 20px;
     overflow: hidden;
 	top: -90vh;
